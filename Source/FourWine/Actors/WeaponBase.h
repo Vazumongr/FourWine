@@ -1,0 +1,56 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "FourWine/DataTypes/GameStructs.h"
+
+#include "WeaponBase.generated.h"
+
+
+
+/**
+ * 
+ */
+UCLASS()
+class FOURWINE_API AWeaponBase : public AActor
+{
+	GENERATED_BODY()
+
+	AWeaponBase();
+
+public:
+	void Setup(struct FInventoryItem InInventoryItem);
+	FInventoryItem* StoreWeapon() { return &InventoryItem; }
+	void StartAttack();
+	void EndAttack();
+	void SetOwningActor(AActor* InOwningActor);
+	UStaticMesh* GetStaticMesh() const { return StaticMeshComponent->GetStaticMesh();}
+
+
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = Collision)
+	class UBoxComponent* BoxCollider;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = StaticMeshActor)
+	class UStaticMeshComponent* StaticMeshComponent;
+
+	UFUNCTION()
+	void BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Stats)
+	struct FDamageStruct DamageValues;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Stats)
+	struct FInventoryItem InventoryItem;
+
+	
+
+private:
+	UPROPERTY()
+	TArray<AActor*> ActorsHitDuringThisAttack;
+
+	bool bIsAttacking = false;
+	UPROPERTY()
+	AActor* OwningActor;
+};
