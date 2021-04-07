@@ -36,6 +36,8 @@ class FOURWINE_API AFourWineCharacter : public ACharacter, public IAbilitySystem
 public:
 	AFourWineCharacter(const class FObjectInitializer& ObjectInitializer);
 
+	virtual void PossessedBy(AController* NewController) override;
+
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 	void KillNotify(AActor* ActorKilled) const;
@@ -69,8 +71,19 @@ public:
 	
 
 protected:
+	bool ASCInputBound = false;
 
 	virtual void BeginPlay() override;
+	
+	virtual void PostInitializeComponents() override;
+
+	// Client only
+	virtual void OnRep_PlayerState() override;
+
+	// Called from both SetupPlayerInputComponent and OnRep_PlayerState because of a potential race condition where the PlayerController might
+	// call ClientRestart which calls SetupPlayerInputComponent before the PlayerState is repped to the client so the PlayerState would be null in SetupPlayerInputComponent.
+	// Conversely, the PlayerState might be repped before the PlayerController calls ClientRestart so the Actor's InputComponent would be null in OnRep_PlayerState.
+	void BindASCInput();
 
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
 	TWeakObjectPtr<class UFWAttributeSet> AttributeSet;

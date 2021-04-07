@@ -22,6 +22,7 @@
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FourWine/Items/InventoryComponent.h"
 #include "Fourwine/FourWine.h"
+#include "FourWine/PlayerStates/FWPlayerState.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AFourWineCharacter
@@ -76,6 +77,49 @@ AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectIni
 
 	WeaponFXComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Weapon FX Component"));
 	WeaponFXComponent->SetupAttachment(RootComponent);
+
+	BindASCInput();
+}
+
+// This is server only according to good ole Tranek
+void AFourWineCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
+	if(PS)
+	{
+		AbilitySystemComponent = PS->GetAbilitySystemComponent();
+
+		// This is because Ai won't have player controllers, so I guess we init here?? Don't see how this is relevant tbh.
+		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+
+		AttributeSet = PS->GetAttributeSet();
+
+		// If we handle players disconnecting and rejoining in the future, we'll have to change this so that possession from rejoining doesn't reset attributes.
+		// For now, we assume possession = spawn/respawn
+		InitializeAttributes();
+
+		AddCharacterAbilities();
+
+		APlayerController* PlayerController = GetController<APlayerController>();
+		if(PlayerController)
+		{
+			// This is where I should create the HUD
+			//PlayerController->CreateHUD;
+		}
+
+		
+
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetHealth());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetMaxHealth());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetStamina());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetMaxStamina());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetAttackPower());
+
+		//SetHealth(GetMaxHealth());
+		//SetStamina(GetMaxStamina());
+	}
 }
 
 UAbilitySystemComponent* AFourWineCharacter::GetAbilitySystemComponent() const
@@ -88,6 +132,7 @@ UAbilitySystemComponent* AFourWineCharacter::GetAbilitySystemComponent() const
 
 void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
@@ -114,9 +159,66 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AFourWineCharacter::LookUpAtRate);
 }
 
+/**
+* On the Server, Possession happens before BeginPlay.
+* On the Client, BeginPlay happens before Possession.
+* So we can't use BeginPlay to do anything with the AbilitySystemComponent because we don't have it until the PlayerState replicates from possession.
+*/
 void AFourWineCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+void AFourWineCharacter::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+}
+
+void AFourWineCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
+
+	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
+	if(PS)
+	{
+		
+		AbilitySystemComponent = PS->GetAbilitySystemComponent();
+
+		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+
+		BindASCInput();
+
+		AttributeSet = PS->GetAttributeSet();
+
+		InitializeAttributes();
+
+		APlayerController* PlayerController = GetController<APlayerController>();
+		if(PlayerController)
+		{
+			// Also create hud here
+		}
+
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetHealth());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetMaxHealth());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetStamina());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetMaxStamina());
+		UE_LOG(LogAttribute, Warning, TEXT("%f"), GetAttackPower());
+
+		//SetHealth(GetMaxHealth());
+		//SetStamina(GetMaxStamina());
+	}
+}
+
+void AFourWineCharacter::BindASCInput()
+{
+	if (!ASCInputBound && AbilitySystemComponent.IsValid() && IsValid(InputComponent))
+	{
+		AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
+            FString("CancelTarget"), FString("EGDAbilityInputID"), static_cast<int32>(EFWAbilityInputID::Confirm), static_cast<int32>(EFWAbilityInputID::Cancel)));
+
+		ASCInputBound = true;
+	}
 }
 
 void AFourWineCharacter::AddCharacterAbilities()
@@ -135,8 +237,10 @@ void AFourWineCharacter::AddCharacterAbilities()
 
 void AFourWineCharacter::InitializeAttributes()
 {
+	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(!AbilitySystemComponent.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("ASC is not valid"));
 		return;
 	}
 	if(!DefaultAttributes)
@@ -151,23 +255,29 @@ void AFourWineCharacter::InitializeAttributes()
 	const FGameplayEffectSpecHandle NewHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributes, 1, EffectContextHandle);
 	if(NewHandle.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("NewHandle is valid"));
+		UE_LOG(LogAttribute, Warning, TEXT("Modifiers num %f"), NewHandle.Data.Get()->Modifiers.Num());
+		UE_LOG(LogAttribute, Warning, TEXT("Modifiers num %f"), NewHandle.Data.Get()->ModifiedAttributes.Num());
 		FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
 	}
 }
 
 void AFourWineCharacter::SetHealth(float Health)
 {
+	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("AttributeSet is valid"));
 		AttributeSet->SetHealth(Health);
 	}
 }
 
 void AFourWineCharacter::SetStamina(float Stamina)
 {
+	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(AttributeSet.IsValid())
 	{
-		AttributeSet->SetHealth(Stamina);
+		AttributeSet->SetStamina(Stamina);
 	}
 }
 
@@ -246,6 +356,7 @@ float AFourWineCharacter::GetHealth() const
 {
 	if (AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetHealth();
 	}
 
@@ -256,6 +367,7 @@ float AFourWineCharacter::GetMaxHealth() const
 {
 	if (AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetMaxHealth();
 	}
 
@@ -266,6 +378,7 @@ float AFourWineCharacter::GetStamina() const
 {
 	if (AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetStamina();
 	}
 
@@ -276,6 +389,7 @@ float AFourWineCharacter::GetMaxStamina() const
 {
 	if (AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetMaxStamina();
 	}
 
@@ -286,6 +400,7 @@ float AFourWineCharacter::GetAttackPower() const
 {
 	if (AttributeSet.IsValid())
 	{
+		UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetAttackPower();
 	}
 
@@ -426,8 +541,6 @@ void AFourWineCharacter::BoxTraceForPickUp()
 
 void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
-	//if(!ensure(InventoryItem)) return;
-
 	const TSubclassOf<AWeaponBase> SpawningClass = InventoryItem.ItemsClass;
 	
 	if(LeftHandWeaponActor != nullptr)
