@@ -4,4 +4,6 @@
 #include "Modules/ModuleManager.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, FourWine, "FourWine" );
+
+DEFINE_LOG_CATEGORY(LogAttribute);
  
