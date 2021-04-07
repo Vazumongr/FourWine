@@ -3,12 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 
 #include "FourWineCharacter.generated.h"
 
-UCLASS(config=Game)
-class AFourWineCharacter : public ACharacter
+UCLASS()
+class FOURWINE_API AFourWineCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -32,12 +34,11 @@ class AFourWineCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	class UQuestManager* QuestManager;
 public:
-	AFourWineCharacter();
+	AFourWineCharacter(const class FObjectInitializer& ObjectInitializer);
 
-	void KillNotify(AActor* ActorKilled);
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-	void Heal(float Value);
-	void UseItem(class UItem* Item);
+	void KillNotify(AActor* ActorKilled) const;
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -50,11 +51,42 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category=Camera)
 	float MouseSensitivity;
+
+	UFUNCTION(BlueprintCallable, Category = "FourWine|FWPlayerState|Attributes")
+    float GetHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "FourWine|FWPlayerState|Attributes")
+    float GetMaxHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "FourWine|FWPlayerState|Attributes")
+    float GetStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "FourWine|FWPlayerState|Attributes")
+    float GetMaxStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "FourWine|FWPlayerState|Attributes")
+    float GetAttackPower() const;
 	
 
 protected:
 
 	virtual void BeginPlay() override;
+
+	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
+	TWeakObjectPtr<class UFWAttributeSet> AttributeSet;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="FourWine|Abilities")
+	TArray<TSubclassOf<class UGameplayAbility>> DefaultAbilities;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="FourWine|Abilities")
+	TSubclassOf<class UGameplayEffect> DefaultAttributes;
+
+	virtual void AddCharacterAbilities();
+
+	virtual void InitializeAttributes();
+
+	virtual void SetHealth(float Health);
+	virtual void SetStamina(float Stamina);
 
 	float LineTraceLength = 1000.f;
 
@@ -95,7 +127,7 @@ protected:
 	void OrientToMovement();
 	void Attack();
 	void PlayAttackAnim();
-	void PrepareWeaponsForAttack();
+	void PrepareWeaponsForAttack() const;
 	void BoxTraceForPickUp();
 	void EquipWeaponPressed();
 	void EquipWeapon1();
@@ -136,8 +168,6 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AWeaponBase> WeaponClass;
-	//UPROPERTY()
-	//AWeaponBase* Weapon;
 	
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AWeaponBase> WeaponClass2;

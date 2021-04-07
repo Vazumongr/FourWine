@@ -1,7 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "FourWineCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+
+#include "AbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -13,17 +14,19 @@
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 
+#include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
 #include "FourWine/ActorComponents/HealthComponent.h"
 #include "FourWine/ActorComponents/QuestManager.h"
 #include "FourWine/Actors/WeaponBase.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FourWine/Items/InventoryComponent.h"
+#include "Fourwine/FourWine.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AFourWineCharacter
 
-AFourWineCharacter::AFourWineCharacter()
+AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectInitializer)
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -75,6 +78,11 @@ AFourWineCharacter::AFourWineCharacter()
 	WeaponFXComponent->SetupAttachment(RootComponent);
 }
 
+UAbilitySystemComponent* AFourWineCharacter::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent.Get();
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -111,6 +119,58 @@ void AFourWineCharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
+void AFourWineCharacter::AddCharacterAbilities()
+{
+	//TODO CREATE CUSTOM ASC
+	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid())
+	{
+		return;
+	}
+
+	for(TSubclassOf<UGameplayAbility>& DefaultAbility : DefaultAbilities)
+	{
+		AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(DefaultAbility, 1, INDEX_NONE, this));
+	}
+}
+
+void AFourWineCharacter::InitializeAttributes()
+{
+	if(!AbilitySystemComponent.IsValid())
+	{
+		return;
+	}
+	if(!DefaultAttributes)
+	{
+		UE_LOG(LogAttribute, Error, TEXT("%s() Missing DefaultAttributes for %s. Please fill in the character's Blueprint."), *FString(__FUNCTION__), *GetName());
+		return;
+	}
+
+	FGameplayEffectContextHandle EffectContextHandle = AbilitySystemComponent->MakeEffectContext();
+	EffectContextHandle.AddSourceObject(this);
+
+	const FGameplayEffectSpecHandle NewHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributes, 1, EffectContextHandle);
+	if(NewHandle.IsValid())
+	{
+		FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
+	}
+}
+
+void AFourWineCharacter::SetHealth(float Health)
+{
+	if(AttributeSet.IsValid())
+	{
+		AttributeSet->SetHealth(Health);
+	}
+}
+
+void AFourWineCharacter::SetStamina(float Stamina)
+{
+	if(AttributeSet.IsValid())
+	{
+		AttributeSet->SetHealth(Stamina);
+	}
+}
+
 #pragma region [MOVEMENT]
 void AFourWineCharacter::TurnAtRate(float Rate)
 {
@@ -126,7 +186,7 @@ void AFourWineCharacter::LookUpAtRate(float Rate)
 
 void AFourWineCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f))
+	if ((Controller != nullptr) && (Value != 0.0f))
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -140,7 +200,7 @@ void AFourWineCharacter::MoveForward(float Value)
 
 void AFourWineCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ( (Controller != nullptr) && (Value != 0.0f) )
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -176,10 +236,60 @@ void AFourWineCharacter::OrientToMovement()
 	GetCharacterMovement()->bOrientRotationToMovement = !GetCharacterMovement()->bOrientRotationToMovement;
 }
 
-void AFourWineCharacter::KillNotify(AActor* ActorKilled)
+void AFourWineCharacter::KillNotify(AActor* ActorKilled) const
 {
 	//UE_LOG(LogTemp, Warning, TEXT("You killed: %s"), *ActorKilled->GetName());
 	QuestManager->CheckForKillQuests(ActorKilled->GetClass());
+}
+
+float AFourWineCharacter::GetHealth() const
+{
+	if (AttributeSet.IsValid())
+	{
+		return AttributeSet->GetHealth();
+	}
+
+	return 0.0f;
+}
+
+float AFourWineCharacter::GetMaxHealth() const
+{
+	if (AttributeSet.IsValid())
+	{
+		return AttributeSet->GetMaxHealth();
+	}
+
+	return 0.0f;
+}
+
+float AFourWineCharacter::GetStamina() const
+{
+	if (AttributeSet.IsValid())
+	{
+		return AttributeSet->GetStamina();
+	}
+
+	return 0.0f;
+}
+
+float AFourWineCharacter::GetMaxStamina() const
+{
+	if (AttributeSet.IsValid())
+	{
+		return AttributeSet->GetMaxStamina();
+	}
+
+	return 0.0f;
+}
+
+float AFourWineCharacter::GetAttackPower() const
+{
+	if (AttributeSet.IsValid())
+	{
+		return AttributeSet->GetAttackPower();
+	}
+
+	return 0.0f;
 }
 
 void AFourWineCharacter::AttackEnd()
@@ -249,7 +359,7 @@ void AFourWineCharacter::PlayAttackAnim()
 	}
 }
 
-void AFourWineCharacter::PrepareWeaponsForAttack()
+void AFourWineCharacter::PrepareWeaponsForAttack() const
 {
 	RightHandWeaponActor->StartAttack();
 	LeftHandWeaponActor->StartAttack();
@@ -290,11 +400,11 @@ void AFourWineCharacter::EquipWeapon3()
 
 void AFourWineCharacter::BoxTraceForPickUp()
 {
-	FVector Start = FollowCamera->GetComponentLocation();
-	FVector End = Start + FollowCamera->GetForwardVector() * LineTraceLength;
-	FVector HalfSize = FVector(5,5,5);
-	FRotator Orientation = FRotator::ZeroRotator;
-	TArray<AActor*> ActorsToIgnore;
+	const FVector Start = FollowCamera->GetComponentLocation();
+	const FVector End = Start + FollowCamera->GetForwardVector() * LineTraceLength;
+	const FVector HalfSize = FVector(5,5,5);
+	const FRotator Orientation = FRotator::ZeroRotator;
+	const TArray<AActor*> ActorsToIgnore;
 	FHitResult OutHit;
 
 	UKismetSystemLibrary::BoxTraceSingle(this, Start, End, HalfSize, Orientation, UEngineTypes::ConvertToTraceType(ECC_Camera), false, ActorsToIgnore, EDrawDebugTrace::ForDuration, OutHit, true);
@@ -318,7 +428,7 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
 	//if(!ensure(InventoryItem)) return;
 
-	TSubclassOf<AWeaponBase> SpawningClass = InventoryItem.ItemsClass;
+	const TSubclassOf<AWeaponBase> SpawningClass = InventoryItem.ItemsClass;
 	
 	if(LeftHandWeaponActor != nullptr)
 		LeftHandWeaponActor->Destroy();
