@@ -46,6 +46,11 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+	
+	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category=Camera)
+	float MouseSensitivity;
+	
 
 protected:
 
@@ -80,6 +85,10 @@ protected:
 	// Lets us know the chain window has opened
 	UFUNCTION(BlueprintCallable)
     void ChainWindowOpen();
+    
+	virtual void AddControllerYawInput(float Val) override;
+	
+    virtual void AddControllerPitchInput(float Val) override;
 
 	void ToggleSprint();
 	void SwitchShoulder();

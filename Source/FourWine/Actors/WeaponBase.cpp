@@ -4,7 +4,7 @@
 #include "WeaponBase.h"
 
 #include "Components/BoxComponent.h"
-#include "FourWine/FourWineCharacter.h"
+#include "FourWine/Characters/FourWineCharacter.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FourWine/Interfaces/HealthComponentInterface.h"
 
@@ -53,12 +53,9 @@ void AWeaponBase::BeginOverlap(UPrimitiveComponent* OverlappedComponent,
     if(ActorsHitDuringThisAttack.Contains(OtherActor))
     {
         if(OtherActor == GetWorld()->GetFirstPlayerController()->GetPawn()) return;
-        GEngine->AddOnScreenDebugMessage(-1,2,FColor::Green,FString::Printf(TEXT("You already hit %s!"), *OtherActor->GetName()));
     }
     else
     {
-        GEngine->AddOnScreenDebugMessage(-1,2,FColor::Green,FString::Printf(TEXT("You're hitting %s!"), *OtherActor->GetName()));
-
         if(IHealthComponentInterface* OtherActorInterface = Cast<IHealthComponentInterface>(OtherActor))
         {
             ActorsHitDuringThisAttack.Add(OtherActor);

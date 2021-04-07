@@ -18,7 +18,6 @@
 #include "FourWine/Actors/WeaponBase.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/DataTypes/GameStructs.h"
-#include "FourWine/Items/Item.h"
 #include "FourWine/Items/InventoryComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -30,8 +29,11 @@ AFourWineCharacter::AFourWineCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	// set our turn rates for input
-	BaseTurnRate = 45.f;
-	BaseLookUpRate = 45.f;
+	BaseTurnRate = 15.f;
+	BaseLookUpRate = 15.f;
+
+	// set mouse sensitivity
+	MouseSensitivity = 1.f;
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -98,9 +100,9 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("Turn", this, &AFourWineCharacter::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("TurnRate", this, &AFourWineCharacter::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &AFourWineCharacter::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AFourWineCharacter::LookUpAtRate);
 }
 
@@ -180,17 +182,6 @@ void AFourWineCharacter::KillNotify(AActor* ActorKilled)
 	QuestManager->CheckForKillQuests(ActorKilled->GetClass());
 }
 
-void AFourWineCharacter::Heal(float Value)
-{
-	UE_LOG(LogTemp, Warning, TEXT("Healed for %d"), Value);
-}
-
-void AFourWineCharacter::UseItem(UItem* Item)
-{
-	Item->Use(this);
-	Item->OnUse(this);
-}
-
 void AFourWineCharacter::AttackEnd()
 {
 	bIsAttacking = false;
@@ -205,6 +196,16 @@ void AFourWineCharacter::ChainWindowOpen()
 	bCanChain = true;
 	
 	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, WeaponFXSystem, GetMesh()->GetSocketLocation(TEXT("weapon_r")));
+}
+
+void AFourWineCharacter::AddControllerYawInput(float Val)
+{
+	Super::AddControllerYawInput(Val * MouseSensitivity);
+}
+
+void AFourWineCharacter::AddControllerPitchInput(float Val)
+{
+	Super::AddControllerPitchInput(Val * MouseSensitivity);
 }
 
 // TODO refactor this pos

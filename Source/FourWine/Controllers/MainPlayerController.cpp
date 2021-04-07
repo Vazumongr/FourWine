@@ -5,7 +5,7 @@
 
 #include "Blueprint/UserWidget.h"
 #include "FourWine/Widgets/QuestJournalWidget.h"
-#include "FourWine/FourWineCharacter.h"
+#include "FourWine/Characters/FourWineCharacter.h"
 
 void AMainPlayerController::SetupInputComponent()
 {

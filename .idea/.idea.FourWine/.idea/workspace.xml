@@ -24,10 +24,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Actors/BP_Lamp.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Subsystems/EngineSubsystems/FWEngineSubsystem.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Subsystems/EngineSubsystems/FWEngineSubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Objects/FWAttributeSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/PlayerCharacter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/PlayerCharacter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/FoodItem.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/FoodItem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/Item.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/Item.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,49 +57,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/Settings/SettingsClasses.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Localization/Private/LocTextHelperTests.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Testing/TestingObject.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Testing/TestingObject.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/QuestManager.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/QuestManager.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Widgets/QuestTitleWidget.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Widgets/QuestJournalWidget.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Widgets/QuestJournalWidget.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
-        <option value="$PROJECT_DIR$/../../../Program Files/Epic Games/UE_4.25/Engine/Plugins/FX/Niagara/Source/Niagara/Public/NiagaraComponent.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Objects/QuestBase.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Objects/QuestBase.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Interfaces/HealthComponentInterface.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/TargetDummy.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/TargetDummy.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/FoodItem.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/FoodItem.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/Item.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/Item.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/DataAssets/LootDataAsset.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.h" />
-        <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.cpp" />
-        <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FourWineAttributeSet.h" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Objects/FourWineAttributeSet.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Subsystems/EngineSubsystems/FWEngineSubsystem.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Subsystems/EngineSubsystems/FWEngineSubsystem.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Objects/FWAttributeSet.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Objects/FWAttributeSet.h" />
+    </changedPaths>
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="ENABLED" value="false" />
   </component>
   <component name="PerforceNumberNameSynchronizer">
     <option name="listMappings">
@@ -110,6 +118,7 @@
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.384785" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29988974" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.45402297" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -124,7 +133,7 @@
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
   </component>
-  <component name="RunManager" selected=".NET Project.Games\FourWine">
+  <component name="RunManager" selected="C++ Project.FourWine">
     <configuration name="FourWine" type="CppProject" factoryName="C++ Project">
       <configuration_1>
         <option name="CONFIGURATION" value="DebugGame" />
@@ -415,7 +424,7 @@
       <configuration_14>
         <option name="CONFIGURATION" value="Development Editor" />
         <option name="PLATFORM" value="Win64" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UE4.vcxproj" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/FourWine.vcxproj" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -437,8 +446,8 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="Games\FourWine" type="DotNetProject" factoryName=".NET Project" temporary="true">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Program Files/Epic Games/UE_4.25/Engine/Binaries/Win64/UE4Editor.exe" />
+    <configuration name="Games\FourWine" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$USER_HOME$/Program Files/Epic Games/UE_4.25/Engine/Binaries/Win64/UE4Editor.exe" />
       <option name="PROGRAM_PARAMETERS" value="C:\PerforceWorkspaces\Chimera\FourWine\FourWine.uproject -skipcompile" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Intermediate/ProjectFiles" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -455,11 +464,11 @@
         <option name="Build" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue=".NET Project.Games\FourWine" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue=".NET Project.Games\FourWine" />
+      <item itemvalue="C++ Project.FourWine" />
+      <item itemvalue="C++ Project.UE4" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -508,6 +517,9 @@
       <workItem from="1612793403353" duration="1416000" />
       <workItem from="1612965704638" duration="596000" />
       <workItem from="1613054681545" duration="2914000" />
+      <workItem from="1617732746681" duration="3158000" />
+      <workItem from="1617738024713" duration="243000" />
+      <workItem from="1617813697121" duration="2554000" />
     </task>
     <servers />
   </component>
@@ -535,99 +547,54 @@
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606402689847">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606402689847" />
-    <state width="1877" height="174" key="GridCell.Tab.0.bottom" timestamp="1612794828111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="174" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/-979.1080.1920.1040@0.0.1920.1040" timestamp="1612794828111" />
-    <state width="938" height="174" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607026425427" />
-    <state width="1877" height="174" key="GridCell.Tab.0.center" timestamp="1612794828111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="174" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/-979.1080.1920.1040@0.0.1920.1040" timestamp="1612794828111" />
-    <state width="938" height="174" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607026425427" />
-    <state width="1877" height="174" key="GridCell.Tab.0.left" timestamp="1612794828111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="174" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/-979.1080.1920.1040@0.0.1920.1040" timestamp="1612794828111" />
-    <state width="938" height="174" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607026425427" />
-    <state width="1877" height="174" key="GridCell.Tab.0.right" timestamp="1612794828111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="174" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/-979.1080.1920.1040@0.0.1920.1040" timestamp="1612794828111" />
-    <state width="938" height="174" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607026425427" />
-    <state width="938" height="259" key="GridCell.Tab.1.bottom" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.1.center" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.1.left" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.1.right" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.2.bottom" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.2.center" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.2.left" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.2.right" timestamp="1607008762491">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762491" />
-    <state width="938" height="259" key="GridCell.Tab.3.bottom" timestamp="1607008762492">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.3.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762492" />
-    <state width="938" height="259" key="GridCell.Tab.3.center" timestamp="1607008762492">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.3.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762492" />
-    <state width="938" height="259" key="GridCell.Tab.3.left" timestamp="1607008762492">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.3.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762492" />
-    <state width="938" height="259" key="GridCell.Tab.3.right" timestamp="1607008762492">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="259" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607008762492" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1606687087622">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606687087622" />
-    <state x="257" y="115" width="1349" height="925" key="find.popup" timestamp="1612487311761">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="257" y="115" width="1349" height="925" key="find.popup/-1920.0.1920.1040/0.0.1920.1040/-979.1080.1920.1040@0.0.1920.1040" timestamp="1612487311761" />
-    <state x="257" y="115" width="1349" height="925" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607022505751" />
-    <state x="617" y="268" key="org.jetbrains.idea.perforce.application.P4ConfigConnectionDiagnoseDialog" timestamp="1606687576984">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="617" y="268" key="org.jetbrains.idea.perforce.application.P4ConfigConnectionDiagnoseDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606687576984" />
-    <state x="445" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1607023460926">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="445" y="155" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607023460926" />
-    <state x="574" y="431" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1606000938846">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="574" y="431" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606000938846" />
+  <component name="VcsOperationLog">
+    <option name="operations">
+      <list>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/Core/SharedPCH.Core.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/TargetInfo.Game.json" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/Slate/SharedPCH.Slate.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/UnrealEd/SharedPCH.UnrealEd.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/UnrealEd/SharedPCH.UnrealEd.RTTI.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/Engine/SharedPCH.Engine.NonOptimized.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Win64/Development/Editor/UE4.json" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/CoreUObject/SharedPCH.CoreUObject.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/TargetInfo.Engine.json" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/Build/Win64/FourWineEditor/Development/Core/SharedPCH.Core.RTTI.ShadowErrors.h" />
+        </P4AddOperation>
+        <P4AddOperation>
+          <option name="changeList" value="Default Changelist" />
+          <option name="path" value="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Win64/Development/Editor/FourWine.json" />
+        </P4AddOperation>
+      </list>
+    </option>
   </component>
 </project>

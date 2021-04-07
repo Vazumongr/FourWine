@@ -4,7 +4,7 @@
 #include "HealthComponent.h"
 
 
-#include "FourWine/FourWineCharacter.h"
+#include "FourWine/Characters/FourWineCharacter.h"
 #include "FourWine/Interfaces/HealthComponentInterface.h"
 
 // Sets default values for this component's properties
