@@ -85,6 +85,8 @@ protected:
 	// Conversely, the PlayerState might be repped before the PlayerController calls ClientRestart so the Actor's InputComponent would be null in OnRep_PlayerState.
 	void BindASCInput();
 
+	
+
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
 	TWeakObjectPtr<class UFWAttributeSet> AttributeSet;
 

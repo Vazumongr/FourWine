@@ -12,13 +12,13 @@ AFWPlayerState::AFWPlayerState()
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->ReplicationMode = EGameplayEffectReplicationMode::Full;
 
+	AttributeSet = CreateDefaultSubobject<UFWAttributeSet>(TEXT("AttributeSet"));
+
 	NetUpdateFrequency = 100.f;
 }
 
 void AFWPlayerState::PostInitializeComponents()
 {
-	AttributeSet = NewObject<UFWAttributeSet>(this);
-
 	Super::PostInitializeComponents();
 }
 
