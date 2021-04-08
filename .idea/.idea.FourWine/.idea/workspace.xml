@@ -24,15 +24,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Abilities/NewBlueprint.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/NewBlueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GE_BaseStats.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GE_BaseStats.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,8 +67,8 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -515,7 +507,7 @@
       <workItem from="1617732746681" duration="3158000" />
       <workItem from="1617738024713" duration="243000" />
       <workItem from="1617813697121" duration="12307000" />
-      <workItem from="1617890178348" duration="2897000" />
+      <workItem from="1617890178348" duration="3205000" />
     </task>
     <servers />
   </component>

@@ -108,17 +108,6 @@ void AFourWineCharacter::PossessedBy(AController* NewController)
 			// This is where I should create the HUD
 			//PlayerController->CreateHUD;
 		}
-
-		
-
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetHealth());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetMaxHealth());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetStamina());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetMaxStamina());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetAttackPower());
-
-		//SetHealth(GetMaxHealth());
-		//SetStamina(GetMaxStamina());
 	}
 }
 
@@ -198,15 +187,6 @@ void AFourWineCharacter::OnRep_PlayerState()
 		{
 			// Also create hud here
 		}
-
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetHealth());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetMaxHealth());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetStamina());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetMaxStamina());
-		UE_LOG(LogAttribute, Warning, TEXT("%i"), GetAttackPower());
-
-		//SetHealth(GetMaxHealth());
-		//SetStamina(GetMaxStamina());
 	}
 }
 
@@ -249,39 +229,27 @@ void AFourWineCharacter::InitializeAttributes()
 		UE_LOG(LogAttribute, Error, TEXT("%s() Missing DefaultAttributes for %s. Please fill in the character's Blueprint."), *FString(__FUNCTION__), *GetName());
 		return;
 	}
-	if(!AttributeSet.IsValid())
-	{
-		UE_LOG(LogAttribute, Error, TEXT("%s() Missing AttributeSet for %s."), *FString(__FUNCTION__), *GetName());
-		return;
-	}
 
 	FGameplayEffectContextHandle EffectContextHandle = AbilitySystemComponent->MakeEffectContext();
 	EffectContextHandle.AddSourceObject(this);
 
-	UE_LOG(LogAttribute, Warning, TEXT("DefaultAttributes: %s"), *DefaultAttributes->GetName());
 	FGameplayEffectSpecHandle NewHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributes, 1, EffectContextHandle);
 	if(NewHandle.IsValid())
 	{
-		UE_LOG(LogAttribute, Warning, TEXT("NewHandle is valid"));
-		UE_LOG(LogAttribute, Warning, TEXT("Number of modifiers: %i"), NewHandle.Data.Get()->Modifiers.Num());
-		UE_LOG(LogAttribute, Warning, TEXT("Number of modified attributes: %i"), NewHandle.Data.Get()->ModifiedAttributes.Num());
 		FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
 	}
 }
 
 void AFourWineCharacter::SetHealth(float Health)
 {
-	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(AttributeSet.IsValid())
 	{
-		UE_LOG(LogAttribute, Warning, TEXT("AttributeSet is valid"));
 		AttributeSet->SetHealth(Health);
 	}
 }
 
 void AFourWineCharacter::SetStamina(float Stamina)
 {
-	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(AttributeSet.IsValid())
 	{
 		AttributeSet->SetStamina(Stamina);
@@ -363,7 +331,6 @@ float AFourWineCharacter::GetHealth() const
 {
 	if (AttributeSet.IsValid())
 	{
-		//UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetHealth();
 	}
 
@@ -374,7 +341,6 @@ float AFourWineCharacter::GetMaxHealth() const
 {
 	if (AttributeSet.IsValid())
 	{
-		//UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetMaxHealth();
 	}
 
@@ -385,7 +351,6 @@ float AFourWineCharacter::GetStamina() const
 {
 	if (AttributeSet.IsValid())
 	{
-		//UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetStamina();
 	}
 
@@ -396,7 +361,6 @@ float AFourWineCharacter::GetMaxStamina() const
 {
 	if (AttributeSet.IsValid())
 	{
-		//UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetMaxStamina();
 	}
 
@@ -407,7 +371,6 @@ float AFourWineCharacter::GetAttackPower() const
 {
 	if (AttributeSet.IsValid())
 	{
-		//UE_LOG(LogAttribute, Warning, TEXT("Attribute set is valid in %s"), *FString(__FUNCTION__));
 		return AttributeSet->GetAttackPower();
 	}
 
