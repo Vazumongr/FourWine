@@ -24,25 +24,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Abilities/GA_Attack.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Abilities/NewBlueprint1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Abilities/NewGameplayAbilityBlueprint.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Abilities/FWAbilitySystemComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Abilities/FWAbilitySystemComponent.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GE_Attack_Damage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Effects_Stats/GE_BaseStats.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_Attack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/GE_BaseStats.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/NewBlueprint.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/NewBlueprint1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/NewGameplayAbilityBlueprint.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/NewBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/NewBlueprint.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Abilities/FWGameplayAbility.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Abilities/FWGameplayAbility.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,14 +107,14 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWAbilitySystemComponent.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWAbilitySystemComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWGameplayAbility.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -558,7 +557,8 @@
       <workItem from="1617904224861" duration="9566000" />
       <workItem from="1617920666008" duration="1554000" />
       <workItem from="1617922841301" duration="5934000" />
-      <workItem from="1617968703864" duration="2038000" />
+      <workItem from="1617968703864" duration="4453000" />
+      <workItem from="1617985386851" duration="3476000" />
     </task>
     <servers />
   </component>
@@ -639,11 +639,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp</url>
-          <line>194</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/AbilitySystemComponent_Abilities.cpp</url>
           <line>2096</line>

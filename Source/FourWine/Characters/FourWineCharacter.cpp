@@ -85,7 +85,6 @@ AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectIni
 void AFourWineCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-	UE_LOG(LogTemp, Warning, TEXT("I was possessed by: %s"), *NewController->GetName());
 	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
 	if(PS)
 	{
@@ -98,7 +97,6 @@ void AFourWineCharacter::PossessedBy(AController* NewController)
 
 		// If we handle players disconnecting and rejoining in the future, we'll have to change this so that possession from rejoining doesn't reset attributes.
 		// For now, we assume possession = spawn/respawn
-		UE_LOG(LogAttribute, Warning, TEXT("Calling initialize attributes from: %s"), *FString(__FUNCTION__));
 		InitializeAttributes();
 
 		AddCharacterAbilities();
@@ -125,7 +123,6 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("SwitchShoulder", IE_Pressed, this, &AFourWineCharacter::SwitchShoulder);
 	PlayerInputComponent->BindAction("OrientToMovement", IE_Pressed, this, &AFourWineCharacter::OrientToMovement);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFourWineCharacter::Attack);
-	PlayerInputComponent->BindAction("Ability1", IE_Pressed, this, &AFourWineCharacter::Jump);
 	PlayerInputComponent->BindAction("PickUpLoot", IE_Pressed, this, &AFourWineCharacter::EquipWeaponPressed);
 	PlayerInputComponent->BindAction("EquipWeapon1", IE_Pressed, this, &AFourWineCharacter::EquipWeapon1);
 	PlayerInputComponent->BindAction("EquipWeapon2", IE_Pressed, this, &AFourWineCharacter::EquipWeapon2);
@@ -143,9 +140,7 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AFourWineCharacter::LookUpAtRate);
 	
 		
-	UE_LOG(LogTemp, Warning, TEXT("Number of action bindings before BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 	BindASCInput();
-	UE_LOG(LogTemp, Warning, TEXT("Number of action bindings after BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 }
 
 /**
@@ -175,15 +170,11 @@ void AFourWineCharacter::OnRep_PlayerState()
 
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
 		
-		
-		
-		UE_LOG(LogTemp, Warning, TEXT("Number of action bindings before BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 		BindASCInput();
-		UE_LOG(LogTemp, Warning, TEXT("Number of action bindings after BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
+		
 
 		AttributeSet = PS->GetAttributeSet();
 
-		UE_LOG(LogAttribute, Warning, TEXT("Calling initialize attributes from: %s"), *FString(__FUNCTION__));
 		InitializeAttributes();
 	}
 }
@@ -194,7 +185,6 @@ void AFourWineCharacter::BindASCInput()
     {
     	AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
     		FString("CancelTarget"), FString("EFWAbilityInputID"), static_cast<int32>(EFWAbilityInputID::Confirm), static_cast<int32>(EFWAbilityInputID::Cancel)));
-		UE_LOG(LogTemp, Warning, TEXT("Fucking binding"));
     	ASCInputBound = true;
     }
 }

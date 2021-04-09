@@ -40,6 +40,11 @@ public:
 
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+	UFUNCTION(BlueprintCallable)
+	class AWeaponBase* GetRightWeapon() const { return RightHandWeaponActor; }
+	UFUNCTION(BlueprintCallable)
+	class AWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
+
 	void KillNotify(AActor* ActorKilled) const;
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
