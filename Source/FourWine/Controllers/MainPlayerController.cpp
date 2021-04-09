@@ -3,9 +3,12 @@
 
 #include "MainPlayerController.h"
 
+
+#include "AbilitySystemComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "FourWine/Widgets/QuestJournalWidget.h"
 #include "FourWine/Characters/FourWineCharacter.h"
+#include "FourWine/PlayerStates/FWPlayerState.h"
 
 void AMainPlayerController::SetupInputComponent()
 {
@@ -17,6 +20,11 @@ void AMainPlayerController::OnPossess(APawn* InPawn)
 {
     Super::OnPossess(InPawn);
     PlayerCharacter = Cast<AFourWineCharacter>(InPawn);
+    AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
+    if(PS)
+    {
+        PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, InPawn);
+    }
 }
 
 void AMainPlayerController::OpenQuestJournal()

@@ -15,6 +15,7 @@
 #include "NiagaraFunctionLibrary.h"
 
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
+#include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/ActorComponents/HealthComponent.h"
 #include "FourWine/ActorComponents/QuestManager.h"
 #include "FourWine/Actors/WeaponBase.h"
@@ -23,11 +24,12 @@
 #include "FourWine/Items/InventoryComponent.h"
 #include "Fourwine/FourWine.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
+#include "FourWine/Abilities/FWGameplayAbility.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AFourWineCharacter
 
-AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectInitializer)
+AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -77,19 +79,17 @@ AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectIni
 
 	WeaponFXComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Weapon FX Component"));
 	WeaponFXComponent->SetupAttachment(RootComponent);
-
-	BindASCInput();
 }
 
 // This is server only according to good ole Tranek
 void AFourWineCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-
+	UE_LOG(LogTemp, Warning, TEXT("I was possessed by: %s"), *NewController->GetName());
 	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
 	if(PS)
 	{
-		AbilitySystemComponent = PS->GetAbilitySystemComponent();
+		AbilitySystemComponent = Cast<UFWAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
 		// This is because Ai won't have player controllers, so I guess we init here?? Don't see how this is relevant tbh.
 		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
@@ -98,16 +98,10 @@ void AFourWineCharacter::PossessedBy(AController* NewController)
 
 		// If we handle players disconnecting and rejoining in the future, we'll have to change this so that possession from rejoining doesn't reset attributes.
 		// For now, we assume possession = spawn/respawn
+		UE_LOG(LogAttribute, Warning, TEXT("Calling initialize attributes from: %s"), *FString(__FUNCTION__));
 		InitializeAttributes();
 
 		AddCharacterAbilities();
-
-		APlayerController* PlayerController = GetController<APlayerController>();
-		if(PlayerController)
-		{
-			// This is where I should create the HUD
-			//PlayerController->CreateHUD;
-		}
 	}
 }
 
@@ -123,7 +117,7 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	// Set up gameplay key bindings
-	check(PlayerInputComponent);
+	
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AFourWineCharacter::ToggleSprint);
@@ -131,6 +125,7 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("SwitchShoulder", IE_Pressed, this, &AFourWineCharacter::SwitchShoulder);
 	PlayerInputComponent->BindAction("OrientToMovement", IE_Pressed, this, &AFourWineCharacter::OrientToMovement);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFourWineCharacter::Attack);
+	PlayerInputComponent->BindAction("Ability1", IE_Pressed, this, &AFourWineCharacter::Jump);
 	PlayerInputComponent->BindAction("PickUpLoot", IE_Pressed, this, &AFourWineCharacter::EquipWeaponPressed);
 	PlayerInputComponent->BindAction("EquipWeapon1", IE_Pressed, this, &AFourWineCharacter::EquipWeapon1);
 	PlayerInputComponent->BindAction("EquipWeapon2", IE_Pressed, this, &AFourWineCharacter::EquipWeapon2);
@@ -146,6 +141,11 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("TurnRate", this, &AFourWineCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &AFourWineCharacter::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AFourWineCharacter::LookUpAtRate);
+	
+		
+	UE_LOG(LogTemp, Warning, TEXT("Number of action bindings before BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
+	BindASCInput();
+	UE_LOG(LogTemp, Warning, TEXT("Number of action bindings after BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 }
 
 /**
@@ -166,59 +166,56 @@ void AFourWineCharacter::PostInitializeComponents()
 void AFourWineCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 
 	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
 	if(PS)
 	{
 		
-		AbilitySystemComponent = PS->GetAbilitySystemComponent();
+		AbilitySystemComponent = Cast<UFWAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
-
+		
+		
+		
+		UE_LOG(LogTemp, Warning, TEXT("Number of action bindings before BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 		BindASCInput();
+		UE_LOG(LogTemp, Warning, TEXT("Number of action bindings after BindASCInput: %i in %s on character %s"), InputComponent->GetNumActionBindings(), *FString(__FUNCTION__), *GetName());
 
 		AttributeSet = PS->GetAttributeSet();
 
+		UE_LOG(LogAttribute, Warning, TEXT("Calling initialize attributes from: %s"), *FString(__FUNCTION__));
 		InitializeAttributes();
-
-		APlayerController* PlayerController = GetController<APlayerController>();
-		if(PlayerController)
-		{
-			// Also create hud here
-		}
 	}
 }
 
 void AFourWineCharacter::BindASCInput()
 {
-	if (!ASCInputBound && AbilitySystemComponent.IsValid() && IsValid(InputComponent))
-	{
-		AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
-            FString("CancelTarget"), FString("EGDAbilityInputID"), static_cast<int32>(EFWAbilityInputID::Confirm), static_cast<int32>(EFWAbilityInputID::Cancel)));
-
-		ASCInputBound = true;
-	}
+	if (/*!ASCInputBound && */AbilitySystemComponent.IsValid() && IsValid(InputComponent))
+    {
+    	AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
+    		FString("CancelTarget"), FString("EFWAbilityInputID"), static_cast<int32>(EFWAbilityInputID::Confirm), static_cast<int32>(EFWAbilityInputID::Cancel)));
+		UE_LOG(LogTemp, Warning, TEXT("Fucking binding"));
+    	ASCInputBound = true;
+    }
 }
 
 void AFourWineCharacter::AddCharacterAbilities()
 {
-	//TODO CREATE CUSTOM ASC
-	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid())
+	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || bAbilitiesGranted)
 	{
 		return;
 	}
-/*
-	for(TSubclassOf<UGameplayAbility>& DefaultAbility : DefaultAbilities)
+	
+	for(TSubclassOf<UFWGameplayAbility>& DefaultAbility : DefaultAbilities)
 	{
-		AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(DefaultAbility, 1, INDEX_NONE, this));
+		AbilitySystemComponent->GiveAbility(
+            FGameplayAbilitySpec(DefaultAbility, 1, static_cast<int32>(DefaultAbility.GetDefaultObject()->AbilityInputID), this));
+		bAbilitiesGranted = true;
 	}
-*/
 }
 
 void AFourWineCharacter::InitializeAttributes()
 {
-	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
 	if(!AbilitySystemComponent.IsValid())
 	{
 		UE_LOG(LogAttribute, Warning, TEXT("ASC is not valid"));
@@ -381,9 +378,13 @@ void AFourWineCharacter::AttackEnd()
 {
 	bIsAttacking = false;
 	bCanChain = false;
+	AttackNumber = 0;
+	if(LeftHandWeaponActor == nullptr || RightHandWeaponActor == nullptr)
+	{
+		return;
+	}
 	RightHandWeaponActor->EndAttack();
 	LeftHandWeaponActor->EndAttack();
-	AttackNumber = 0;
 }
 
 void AFourWineCharacter::ChainWindowOpen()

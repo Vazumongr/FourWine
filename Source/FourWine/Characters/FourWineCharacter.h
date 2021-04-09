@@ -72,6 +72,7 @@ public:
 
 protected:
 	bool ASCInputBound = false;
+	bool bAbilitiesGranted = false;
 
 	virtual void BeginPlay() override;
 	
@@ -87,11 +88,11 @@ protected:
 
 	
 
-	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
+	TWeakObjectPtr<class UFWAbilitySystemComponent> AbilitySystemComponent;
 	TWeakObjectPtr<class UFWAttributeSet> AttributeSet;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="FourWine|Abilities")
-	TArray<TSubclassOf<class UGameplayAbility>> DefaultAbilities;
+	TArray<TSubclassOf<class UFWGameplayAbility>> DefaultAbilities;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="FourWine|Abilities")
 	TSubclassOf<class UGameplayEffect> DefaultAttributes;

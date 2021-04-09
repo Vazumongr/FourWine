@@ -20,8 +20,6 @@ class FOURWINE_API AFWPlayerState : public APlayerState, public IAbilitySystemIn
 public:
 	AFWPlayerState();
 
-	virtual void PostInitializeComponents() override;
-
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 	class UFWAttributeSet* GetAttributeSet() const;
@@ -43,7 +41,7 @@ public:
 
 protected:
 	UPROPERTY()
-	class UAbilitySystemComponent* AbilitySystemComponent;
+	class UFWAbilitySystemComponent* AbilitySystemComponent;
 
 	UPROPERTY()
 	class UFWAttributeSet* AttributeSet;

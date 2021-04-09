@@ -4,22 +4,18 @@
 
 #include "AbilitySystemComponent.h"
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
+#include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/FourWine.h"
 
 AFWPlayerState::AFWPlayerState()
 {
-	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+	AbilitySystemComponent = CreateDefaultSubobject<UFWAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->ReplicationMode = EGameplayEffectReplicationMode::Full;
 
 	AttributeSet = CreateDefaultSubobject<UFWAttributeSet>(TEXT("AttributeSet"));
 
 	NetUpdateFrequency = 100.f;
-}
-
-void AFWPlayerState::PostInitializeComponents()
-{
-	Super::PostInitializeComponents();
 }
 
 UAbilitySystemComponent* AFWPlayerState::GetAbilitySystemComponent() const

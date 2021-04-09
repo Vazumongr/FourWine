@@ -16,19 +16,6 @@ void UFWAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, fl
 {
 	// This is called whenever attributes change, so for max health/mana we want to scale the current totals to match
     Super::PreAttributeChange(Attribute, NewValue);
-
-	
-	UE_LOG(LogAttribute, Warning, TEXT("%s"), *FString(__FUNCTION__));
-
-    // If a Max value changes, adjust current to keep Current % of Current to Max
-    if (Attribute == GetMaxHealthAttribute()) // GetMaxHealthAttribute comes from the Macros defined at the top of the header
-    {
-    	AdjustAttributeForMaxChange(Health, MaxHealth, NewValue, GetHealthAttribute());
-    }
-    else if (Attribute == GetMaxStaminaAttribute())
-    {
-    	AdjustAttributeForMaxChange(Stamina, MaxStamina, NewValue, GetStaminaAttribute());
-    }
 }
 
 void UFWAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
@@ -45,11 +32,6 @@ void UFWAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 	DOREPLIFETIME_CONDITION_NOTIFY(UFWAttributeSet, Stamina, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UFWAttributeSet, MaxStamina, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UFWAttributeSet, AttackPower, COND_None, REPNOTIFY_Always);
-}
-
-void UFWAttributeSet::AdjustAttributeForMaxChange(FGameplayAttributeData& AffectedAttribute,
-	const FGameplayAttributeData& MaxAttribute, float NewMaxValue, const FGameplayAttribute& AffectedAttributeProperty)
-{
 }
 
 void UFWAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
