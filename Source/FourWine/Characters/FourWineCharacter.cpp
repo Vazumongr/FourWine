@@ -122,7 +122,7 @@ void AFourWineCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AFourWineCharacter::ToggleSprint);
 	PlayerInputComponent->BindAction("SwitchShoulder", IE_Pressed, this, &AFourWineCharacter::SwitchShoulder);
 	PlayerInputComponent->BindAction("OrientToMovement", IE_Pressed, this, &AFourWineCharacter::OrientToMovement);
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFourWineCharacter::Attack);
+	//PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFourWineCharacter::Attack);
 	PlayerInputComponent->BindAction("PickUpLoot", IE_Pressed, this, &AFourWineCharacter::EquipWeaponPressed);
 	PlayerInputComponent->BindAction("EquipWeapon1", IE_Pressed, this, &AFourWineCharacter::EquipWeapon1);
 	PlayerInputComponent->BindAction("EquipWeapon2", IE_Pressed, this, &AFourWineCharacter::EquipWeapon2);
