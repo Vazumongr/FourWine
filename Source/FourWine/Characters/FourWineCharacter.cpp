@@ -514,10 +514,12 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	RightHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_r"));
 	RightHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,270));
 	RightHandWeaponActor->Setup(InventoryItem);
+	RightHandWeaponActor->SetOwningActor(this);
 	
 	LeftHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
 	LeftHandWeaponActor->SetOwner(this);
 	LeftHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_l"));
 	LeftHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,90));
 	LeftHandWeaponActor->Setup(InventoryItem);
+	RightHandWeaponActor->SetOwningActor(this);
 }

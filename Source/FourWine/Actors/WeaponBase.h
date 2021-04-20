@@ -51,6 +51,6 @@ private:
 	TArray<AActor*> ActorsHitDuringThisAttack;
 
 	bool bIsAttacking = false;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, meta = (AllowPrivateAccess))
 	AActor* OwningActor;
 };

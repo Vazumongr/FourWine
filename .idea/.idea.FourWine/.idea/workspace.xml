@@ -24,12 +24,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_WeaponBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GE_Attack_Damage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GE_Attack_Damage.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Meshes/Imported/SM_GreatAxe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Meshes/Imported/SM_GreatAxe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Meshes/KhaimeraAxe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Meshes/KhaimeraAxe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +61,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/Settings/SettingsClasses.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/MockGameplayTasks.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/BlueprintGraph/Classes/K2Node_RemoveDelegate.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Private/Tests/AITestsCommon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Localization/Private/LocTextHelperTests.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -103,6 +109,7 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
     </changedPaths>
   </component>
@@ -550,7 +557,9 @@
       <workItem from="1617985386851" duration="3476000" />
       <workItem from="1618339092433" duration="1880000" />
       <workItem from="1618690158174" duration="916000" />
-      <workItem from="1618836228729" duration="1411000" />
+      <workItem from="1618836228729" duration="1414000" />
+      <workItem from="1618863057184" duration="2822000" />
+      <workItem from="1618919546784" duration="1021000" />
     </task>
     <servers />
   </component>
