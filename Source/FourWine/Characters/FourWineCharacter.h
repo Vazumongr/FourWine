@@ -148,12 +148,14 @@ protected:
 	void OrientToMovement();
 	void Attack();
 	void PlayAttackAnim();
+	UFUNCTION(BlueprintCallable)
 	void PrepareWeaponsForAttack() const;
 	void BoxTraceForPickUp();
 	void EquipWeaponPressed();
 	void EquipWeapon1();
 	void EquipWeapon2();
 	void EquipWeapon3();
+	void EquipWeapon(int32 WeaponIdx);
 	void CreateWeapon(struct FInventoryItem InventoryItem);
 	
 	// APawn interface

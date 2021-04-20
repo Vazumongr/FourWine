@@ -437,6 +437,7 @@ void AFourWineCharacter::PlayAttackAnim()
 
 void AFourWineCharacter::PrepareWeaponsForAttack() const
 {
+	if(RightHandWeaponActor == nullptr || LeftHandWeaponActor == nullptr) return;
 	RightHandWeaponActor->StartAttack();
 	LeftHandWeaponActor->StartAttack();
 }
@@ -449,28 +450,46 @@ void AFourWineCharacter::EquipWeaponPressed()
 
 void AFourWineCharacter::EquipWeapon1()
 {
+	EquipWeapon(0);
+	/*
 	if(RightHandWeaponActor != nullptr)
 		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
 	FInventoryItem InventoryItem;
 	if(InventoryComponent->GetInventoryItem(0, InventoryItem))
 		CreateWeapon(InventoryItem);
+	*/
 }
 
 void AFourWineCharacter::EquipWeapon2()
 {
+	EquipWeapon(1);
+	/*
 	if(RightHandWeaponActor != nullptr)
 		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
 	FInventoryItem InventoryItem;
 	if(InventoryComponent->GetInventoryItem(1, InventoryItem))
 		CreateWeapon(InventoryItem);
+	*/
 }
 
 void AFourWineCharacter::EquipWeapon3()
 {
+	EquipWeapon(2);
+	/*
 	if(RightHandWeaponActor != nullptr)
 		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
 	FInventoryItem InventoryItem;
 	if(InventoryComponent->GetInventoryItem(2, InventoryItem))
+		CreateWeapon(InventoryItem);
+	*/
+}
+
+void AFourWineCharacter::EquipWeapon(int32 WeaponIdx)
+{
+	if(RightHandWeaponActor != nullptr)
+		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
+	FInventoryItem InventoryItem;
+	if(InventoryComponent->GetInventoryItem(WeaponIdx, InventoryItem))
 		CreateWeapon(InventoryItem);
 }
 
@@ -521,5 +540,5 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	LeftHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_l"));
 	LeftHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,90));
 	LeftHandWeaponActor->Setup(InventoryItem);
-	RightHandWeaponActor->SetOwningActor(this);
+	LeftHandWeaponActor->SetOwningActor(this);
 }

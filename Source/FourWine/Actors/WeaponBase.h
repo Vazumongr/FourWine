@@ -21,6 +21,8 @@ class FOURWINE_API AWeaponBase : public AActor
 	AWeaponBase();
 
 public:
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void DoOverlap();
 	void Setup(struct FInventoryItem InInventoryItem);
 	FInventoryItem* StoreWeapon() { return &InventoryItem; }
 	void StartAttack();
@@ -47,10 +49,14 @@ protected:
 	
 
 private:
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (AllowPrivateAccess))
 	TArray<AActor*> ActorsHitDuringThisAttack;
 
 	bool bIsAttacking = false;
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, meta = (AllowPrivateAccess))
+    TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, meta = (AllowPrivateAccess))
+	float CollisionRadius;
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, meta = (AllowPrivateAccess))
-	AActor* OwningActor;
+	class AFourWineCharacter* OwningActor;
 };
