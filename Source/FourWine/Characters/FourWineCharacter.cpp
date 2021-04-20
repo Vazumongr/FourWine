@@ -99,7 +99,7 @@ void AFourWineCharacter::PossessedBy(AController* NewController)
 		// For now, we assume possession = spawn/respawn
 		InitializeAttributes();
 
-		AddCharacterAbilities();
+		AddCharacterAbilities(DefaultAbilities);
 	}
 }
 
@@ -189,17 +189,17 @@ void AFourWineCharacter::BindASCInput()
     }
 }
 
-void AFourWineCharacter::AddCharacterAbilities()
+void AFourWineCharacter::AddCharacterAbilities(TArray<TSubclassOf<class UFWGameplayAbility>>& AbilitiesToAdd)
 {
 	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || bAbilitiesGranted)
 	{
 		return;
 	}
 	
-	for(TSubclassOf<UFWGameplayAbility>& DefaultAbility : DefaultAbilities)
+	for(TSubclassOf<UFWGameplayAbility>& Ability : AbilitiesToAdd)
 	{
 		AbilitySystemComponent->GiveAbility(
-            FGameplayAbilitySpec(DefaultAbility, 1, static_cast<int32>(DefaultAbility.GetDefaultObject()->AbilityInputID), this));
+            FGameplayAbilitySpec(Ability, 1, static_cast<int32>(Ability.GetDefaultObject()->AbilityInputID), this));
 		bAbilitiesGranted = true;
 	}
 }
@@ -527,6 +527,7 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 		LeftHandWeaponActor->Destroy();
 	if(RightHandWeaponActor != nullptr)
 		RightHandWeaponActor->Destroy();
+	AbilitySystemComponent->ClearAllAbilities();
 
 	RightHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
 	RightHandWeaponActor->SetOwner(this);
@@ -534,6 +535,7 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	RightHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,270));
 	RightHandWeaponActor->Setup(InventoryItem);
 	RightHandWeaponActor->SetOwningActor(this);
+	AddCharacterAbilities(RightHandWeaponActor->GetAbilities());
 	
 	LeftHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
 	LeftHandWeaponActor->SetOwner(this);

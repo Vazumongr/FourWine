@@ -48,8 +48,8 @@ void AWeaponBase::DoOverlap_Implementation()
     if(AbilitySystemComponent != nullptr)
     {
         FGameplayTag EventTag = FGameplayTag::RequestGameplayTag(FName("Ability.Melee"));
-        
         FGameplayEventData Payload;
+        
         Payload.Instigator = this;
         Payload.Target = OwningActor;
         Payload.ContextHandle = AbilitySystemComponent->MakeEffectContext();

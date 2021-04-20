@@ -102,7 +102,7 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="FourWine|Abilities")
 	TSubclassOf<class UGameplayEffect> DefaultAttributes;
 
-	virtual void AddCharacterAbilities();
+	virtual void AddCharacterAbilities(TArray<TSubclassOf<class UFWGameplayAbility>>& AbilitiesToAdd);
 
 	virtual void InitializeAttributes();
 

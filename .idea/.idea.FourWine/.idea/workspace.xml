@@ -24,14 +24,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe2.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Meshes/Imported/SM_Sickle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Meshes/Imported/SM_Sickle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Meshes/Imported/SM_Spear.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Meshes/Imported/SM_Spear.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
@@ -116,11 +114,11 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWGameplayAbility.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -574,6 +572,7 @@
       <workItem from="1618922681586" duration="5015000" />
       <workItem from="1618938302392" duration="422000" />
       <workItem from="1618938761541" duration="5356000" />
+      <workItem from="1618953519328" duration="1018000" />
     </task>
     <servers />
   </component>

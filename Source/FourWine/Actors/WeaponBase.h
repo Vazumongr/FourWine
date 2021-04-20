@@ -28,6 +28,8 @@ public:
 	void StartAttack();
 	void EndAttack();
 	void SetOwningActor(AActor* InOwningActor);
+	
+	FORCEINLINE TArray<TSubclassOf<class UFWGameplayAbility>>& GetAbilities() { return AbilitiesForOwner; };
 	UStaticMesh* GetStaticMesh() const { return StaticMeshComponent->GetStaticMesh();}
 
 
@@ -51,6 +53,8 @@ protected:
 private:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (AllowPrivateAccess))
 	TArray<AActor*> ActorsHitDuringThisAttack;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, meta = (AllowPrivateAccess), Category="FourWine|Abilities")
+	TArray<TSubclassOf<class UFWGameplayAbility>> AbilitiesForOwner;
 
 	bool bIsAttacking = false;
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, meta = (AllowPrivateAccess))
