@@ -116,7 +116,7 @@ void AFWPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AFWPlayerCharacter::ToggleSprint);
 	PlayerInputComponent->BindAction("SwitchShoulder", IE_Pressed, this, &AFWPlayerCharacter::SwitchShoulder);
 	PlayerInputComponent->BindAction("OrientToMovement", IE_Pressed, this, &AFWPlayerCharacter::OrientToMovement);
-	//PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFWPlayerCharacter::Attack);
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AFWPlayerCharacter::Attack);
 	PlayerInputComponent->BindAction("PickUpLoot", IE_Pressed, this, &AFWPlayerCharacter::EquipWeaponPressed);
 	PlayerInputComponent->BindAction("EquipWeapon1", IE_Pressed, this, &AFWPlayerCharacter::EquipWeapon1);
 	PlayerInputComponent->BindAction("EquipWeapon2", IE_Pressed, this, &AFWPlayerCharacter::EquipWeapon2);
@@ -160,7 +160,7 @@ void AFWPlayerCharacter::OnRep_PlayerState()
 
 void AFWPlayerCharacter::BindASCInput()
 {
-	if (/*!ASCInputBound && */AbilitySystemComponent.IsValid() && IsValid(InputComponent))
+	if ( bDoBinding && !ASCInputBound && AbilitySystemComponent.IsValid() && IsValid(InputComponent))
 	{
 		AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
             FString("CancelTarget"), FString("EFWAbilityInputID"), static_cast<int32>(EFWAbilityInputID::Confirm), static_cast<int32>(EFWAbilityInputID::Cancel)));
@@ -262,7 +262,7 @@ void AFWPlayerCharacter::OrientToMovement()
 
 void AFWPlayerCharacter::Attack()
 {
-	if(RightHandWeaponActor == nullptr || LeftHandWeaponActor == nullptr) return;
+	if(RightHandWeaponActor == nullptr || LeftHandWeaponActor == nullptr || !AbilitySystemComponent.IsValid() || bDoBinding) return;
 	if(bIsAttacking)
 	{
 		if(bCanChain)
@@ -284,15 +284,18 @@ void AFWPlayerCharacter::PlayAttackAnim()
 	switch(AttackNumber)
 	{
 	case 0:
-		PlayAnimMontage(FirstAttack);
+		//PlayAnimMontage(FirstAttack);
+		AbilitySystemComponent->AbilityLocalInputPressed(0);
 		++AttackNumber;
 		break;
 	case 1:
-		PlayAnimMontage(SecondAttack);
+		//PlayAnimMontage(SecondAttack);
+		AbilitySystemComponent->AbilityLocalInputPressed(1);
 		++AttackNumber;
 		break;
 	case 2:
-		PlayAnimMontage(ThirdAttack);
+		//PlayAnimMontage(ThirdAttack);
+		AbilitySystemComponent->AbilityLocalInputPressed(2);
 		AttackNumber = 0;
 		break;
 	default:
@@ -334,37 +337,16 @@ void AFWPlayerCharacter::EquipWeaponPressed()
 void AFWPlayerCharacter::EquipWeapon1()
 {
 	EquipWeapon(0);
-	/*
-	if(RightHandWeaponActor != nullptr)
-	InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
-	FInventoryItem InventoryItem;
-	if(InventoryComponent->GetInventoryItem(0, InventoryItem))
-	CreateWeapon(InventoryItem);
-	*/
 }
 
 void AFWPlayerCharacter::EquipWeapon2()
 {
 	EquipWeapon(1);
-	/*
-	if(RightHandWeaponActor != nullptr)
-	InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
-	FInventoryItem InventoryItem;
-	if(InventoryComponent->GetInventoryItem(1, InventoryItem))
-	CreateWeapon(InventoryItem);
-	*/
 }
 
 void AFWPlayerCharacter::EquipWeapon3()
 {
 	EquipWeapon(2);
-	/*
-	if(RightHandWeaponActor != nullptr)
-	InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
-	FInventoryItem InventoryItem;
-	if(InventoryComponent->GetInventoryItem(2, InventoryItem))
-	CreateWeapon(InventoryItem);
-	*/
 }
 
 void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)

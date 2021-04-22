@@ -136,6 +136,8 @@ protected:
 	bool bIsAttacking = false;		// We are in attack animation
 	bool bCanChain = false;	// We can chain attacks
 	uint8 AttackNumber = 0;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	bool bDoBinding = false;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (AllowPrivateAccess))
 	class UNiagaraComponent* WeaponFXComponent;

@@ -24,25 +24,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_Attack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_EndAttack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_OpenChain.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Melee_B_Montage1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Melee_C_Montage1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animation/ABP_Khaimera.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/ABP_Khaimera.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,10 +75,14 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/MockGameplayTasks.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/BlueprintGraph/Classes/K2Node_RemoveDelegate.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/PhysicsAssetEditor/Private/PhysicsAssetGraph/PhysicsAssetGraphSummoner.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Private/Tests/AITestsCommon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/GraphEditor/Private/KismetPins/SGraphPinKey.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Localization/Private/LocTextHelperTests.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/HotReload/Private/HotReload.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AssetTools/Private/AssetFixUpRedirectors.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/BodySetup.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h" root0="FORCE_HIGHLIGHTING" />
@@ -105,7 +113,6 @@
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
       <option value="$PROJECT_DIR$/Source/FourWine/Objects/FourWineAttributeSet.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Subsystems/EngineSubsystems/FWEngineSubsystem.cpp" />
@@ -125,13 +132,16 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -586,7 +596,9 @@
       <workItem from="1618938302392" duration="422000" />
       <workItem from="1618938761541" duration="5356000" />
       <workItem from="1618953519328" duration="1018000" />
-      <workItem from="1619026769442" duration="6875000" />
+      <workItem from="1619026769442" duration="7511000" />
+      <workItem from="1619092735147" duration="3452000" />
+      <workItem from="1619129470746" duration="1494000" />
     </task>
     <servers />
   </component>
