@@ -95,11 +95,11 @@ void AFWCharacterBase::BeginPlay()
 
 void AFWCharacterBase::AddCharacterAbilities(TArray<TSubclassOf<UFWGameplayAbility>>& AbilitiesToAdd)
 {
-	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || bAbilitiesGranted)
+	if(GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid())
 	{
 		return;
 	}
-	
+	UE_LOG(LogWeapon, Warning, TEXT("Ability list is size %i"), AbilitiesToAdd.Num());
 	for(TSubclassOf<UFWGameplayAbility>& Ability : AbilitiesToAdd)
 	{
 		AbilitySystemComponent->GiveAbility(

@@ -24,29 +24,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_Attack.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_EndAttack.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_OpenChain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Melee_B_Montage1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Melee_C_Montage1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AN_Attack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Attack1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +111,6 @@
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
@@ -141,6 +120,7 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
     </changedPaths>
   </component>
@@ -598,7 +578,7 @@
       <workItem from="1618953519328" duration="1018000" />
       <workItem from="1619026769442" duration="7511000" />
       <workItem from="1619092735147" duration="3452000" />
-      <workItem from="1619129470746" duration="1494000" />
+      <workItem from="1619129470746" duration="3094000" />
     </task>
     <servers />
   </component>
