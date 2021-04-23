@@ -25,8 +25,25 @@
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Map/Weapons_Kit.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapon_Pack/Map/Weapons_Kit.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Axe.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatAxe.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatHammer.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_H2H.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Mace.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Shield.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sickle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Spear.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sword.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Throwing.uasset" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -579,6 +596,7 @@
       <workItem from="1619026769442" duration="7511000" />
       <workItem from="1619092735147" duration="3452000" />
       <workItem from="1619129470746" duration="3094000" />
+      <workItem from="1619165066169" duration="1534000" />
     </task>
     <servers />
   </component>
