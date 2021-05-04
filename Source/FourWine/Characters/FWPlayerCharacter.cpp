@@ -20,6 +20,7 @@
 #include "FourWine/PlayerStates/FWPlayerState.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/Actors/FWWeaponBase.h"
+#include "FourWine/FourWine.h"
 
 AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {

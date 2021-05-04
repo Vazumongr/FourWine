@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
-#include "FourWine/FourWine.h"
 
 #include "FWCharacterBase.generated.h"
 
@@ -52,6 +51,9 @@ public:
     float GetAttackPower() const;
 
 	virtual void Die();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	bool bDebugMelee = true;
 
 protected:
 	virtual void BeginPlay() override;

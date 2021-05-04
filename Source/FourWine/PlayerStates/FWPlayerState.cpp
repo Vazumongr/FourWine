@@ -6,6 +6,7 @@
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
 #include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/FourWine.h"
+#include "FourWine/Characters/FWCharacterBase.h"
 
 AFWPlayerState::AFWPlayerState()
 {
@@ -70,8 +71,13 @@ void AFWPlayerState::BeginPlay()
 void AFWPlayerState::HealthChanged(const FOnAttributeChangeData& Data)
 {
 	float Health = Data.NewValue;
-	UE_LOG(LogAttribute, Warning, TEXT("Health: %f"), Health);
+	UE_LOG(LogAttribute, Warning, TEXT("Health: %f | %s"), Health, *GetName());
 	// Update HUD stuff
+
+	if(AFWCharacterBase* Character = Cast<AFWCharacterBase>(GetPawn()))
+	{
+		Character->Die();
+	}
 }
 
 void AFWPlayerState::MaxHealthChanged(const FOnAttributeChangeData& Data)

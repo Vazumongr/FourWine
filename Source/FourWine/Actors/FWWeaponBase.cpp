@@ -46,9 +46,11 @@ void AFWWeaponBase::DoOverlap_Implementation()
     
     FVector SphereLocation = StaticMeshComponent->GetSocketLocation(FName("CollisionSocket"));
     TArray<AActor*> ActorsHitOnThisTrace;   // These are the folk we do damage too!
+    ActorsHitDuringThisAttack.Add(OwningActorNew);
     UKismetSystemLibrary::SphereOverlapActors(this, SphereLocation, CollisionRadius, ObjectTypes, nullptr, ActorsHitDuringThisAttack, ActorsHitOnThisTrace);
     ActorsHitDuringThisAttack.Append(ActorsHitOnThisTrace);
-    UKismetSystemLibrary::DrawDebugSphere(this, SphereLocation, CollisionRadius, 12, FLinearColor::Green, 2.f);
+    if(OwningActorNew->bDebugMelee)
+        UKismetSystemLibrary::DrawDebugSphere(this, SphereLocation, CollisionRadius, 12, FLinearColor::Green, 2.f);
     UAbilitySystemComponent* AbilitySystemComponent;
     if(OwningActor != nullptr)
         AbilitySystemComponent = OwningActor->GetAbilitySystemComponent();
@@ -64,10 +66,12 @@ void AFWWeaponBase::DoOverlap_Implementation()
         FGameplayEventData Payload;
         
         Payload.Instigator = this;
+        /*
         if(OwningActor != nullptr)
             Payload.Target = OwningActor;
         else if(OwningActorNew != nullptr)
             Payload.Target = OwningActorNew;
+            */
         Payload.ContextHandle = AbilitySystemComponent->MakeEffectContext();
         Payload.EventTag = EventTag;
         Payload.TargetData = UAbilitySystemBlueprintLibrary::AbilityTargetDataFromActorArray(ActorsHitOnThisTrace, false);

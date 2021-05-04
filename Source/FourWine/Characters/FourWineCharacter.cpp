@@ -31,6 +31,7 @@
 
 AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
+	UE_LOG(LogTemp, Warning, TEXT("FourWineCharacter STILL BEING USED SOMEWHERE"));
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
