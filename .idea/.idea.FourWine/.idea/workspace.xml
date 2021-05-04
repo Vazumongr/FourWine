@@ -24,38 +24,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Cast.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Cast_Montage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Emote_BangHead_Montage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Emote_BangHead_T3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Emote_CantCatchMe.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animation/Emote_CantCatchMe_Montage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Axe.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Hammer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/DataAssets/DA_MeshCollection.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Cast_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Emote_BangHead_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Emote_CantCatchMe_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_A_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_A_Montage1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_B_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_B_Montage1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_C_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_C_Montage1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GE_Attack_Damage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GE_Attack_Damage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Hammer3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee3.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/AnimNotifies/AN_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animation/ABP_Khaimera.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/ABP_Khaimera.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_PC.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Axe2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DA_LootStuff.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Loot1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Loot1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Cast_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Emote_BangHead_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Emote_CantCatchMe_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_A_Montage1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_B_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_B_Montage1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_C_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Melee_C_Montage1.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Loot2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Loot2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Loot3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Loot3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/NewBlueprint.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PC.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Axe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Hammer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Hammer.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Cast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Cast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonKhaimera/Characters/Heroes/Khaimera/Khaimera_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonKhaimera/Characters/Heroes/Khaimera/Khaimera_AnimBlueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,10 +156,13 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -613,7 +625,7 @@
       <workItem from="1619218635354" duration="1095000" />
       <workItem from="1619299193489" duration="599000" />
       <workItem from="1620153095180" duration="22000" />
-      <workItem from="1620153324345" duration="2090000" />
+      <workItem from="1620153324345" duration="3646000" />
     </task>
     <servers />
   </component>

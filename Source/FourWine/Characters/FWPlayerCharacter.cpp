@@ -19,7 +19,7 @@
 #include "FourWine/Items/InventoryComponent.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 #include "FourWine/Actors/LootBase.h"
-#include "FourWine/Actors/WeaponBase.h"
+#include "FourWine/Actors/FWWeaponBase.h"
 
 AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -355,12 +355,15 @@ void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
 	FInventoryItem InventoryItem;
 	if(InventoryComponent->GetInventoryItem(WeaponIdx, InventoryItem))
+	{
 		CreateWeapon(InventoryItem);
+		SetAttackPower();
+	}
 }
 
 void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
-	const TSubclassOf<AWeaponBase> SpawningClass = InventoryItem.ItemsClass;
+	const TSubclassOf<AFWWeaponBase> SpawningClass = InventoryItem.ItemsClass;
 	
 	if(LeftHandWeaponActor != nullptr)
 		LeftHandWeaponActor->Destroy();
@@ -368,7 +371,7 @@ void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 		RightHandWeaponActor->Destroy();
 	AbilitySystemComponent->ClearAllAbilities();
 
-	RightHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
+	RightHandWeaponActor = GetWorld()->SpawnActor<AFWWeaponBase>(SpawningClass);
 	RightHandWeaponActor->SetOwner(this);
 	RightHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_r"));
 	RightHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,270));
@@ -376,12 +379,20 @@ void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	RightHandWeaponActor->SetOwningActor(this);
 	AddCharacterAbilities(RightHandWeaponActor->GetAbilities());
 	
-	LeftHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
+	LeftHandWeaponActor = GetWorld()->SpawnActor<AFWWeaponBase>(SpawningClass);
 	LeftHandWeaponActor->SetOwner(this);
 	LeftHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_l"));
 	LeftHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,90));
 	LeftHandWeaponActor->Setup(InventoryItem);
 	LeftHandWeaponActor->SetOwningActor(this);
+}
+
+void AFWPlayerCharacter::SetAttackPower()
+{
+	if(RightHandWeaponActor != nullptr || AttributeSet.IsValid())
+	{
+		AttributeSet->SetAttackPower(RightHandWeaponActor->GetDamage());
+	}
 }
 
 void AFWPlayerCharacter::PrepareWeaponsForAttack() const

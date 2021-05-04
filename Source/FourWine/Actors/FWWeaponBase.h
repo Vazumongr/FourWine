@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "FourWine/DataTypes/GameStructs.h"
 
-#include "WeaponBase.generated.h"
+#include "FWWeaponBase.generated.h"
 
 
 
@@ -14,11 +14,11 @@
  * 
  */
 UCLASS()
-class FOURWINE_API AWeaponBase : public AActor
+class FOURWINE_API AFWWeaponBase : public AActor
 {
 	GENERATED_BODY()
 
-	AWeaponBase();
+	AFWWeaponBase();
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
@@ -28,6 +28,7 @@ public:
 	void StartAttack();
 	void EndAttack();
 	void SetOwningActor(AActor* InOwningActor);
+	float GetDamage() const;
 	
 	FORCEINLINE TArray<TSubclassOf<class UFWGameplayAbility>>& GetAbilities() { return AbilitiesForOwner; };
 	UStaticMesh* GetStaticMesh() const { return StaticMeshComponent->GetStaticMesh();}

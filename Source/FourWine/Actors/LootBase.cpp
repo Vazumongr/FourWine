@@ -34,9 +34,11 @@ void ALootBase::BeginPlay()
         
         StaticMeshComponent->SetStaticMesh(StaticMeshes[FMath::RandRange(0, StaticMeshes.Num() - 1)]);
 	}
-	
 
-	InventoryItem.DamageValues = FDamageStruct{10,10,10};
+	float x = FMath::RandRange(0,30);
+	float y = FMath::RandRange(0,30);
+	float z = FMath::RandRange(0,30);
+	InventoryItem.DamageValues = FDamageStruct{x,y,z};
 	//InventoryItem.ItemsClass = StaticClass();
 	InventoryItem.StaticMesh = StaticMeshComponent->GetStaticMesh();
 	

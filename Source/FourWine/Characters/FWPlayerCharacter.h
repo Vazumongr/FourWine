@@ -22,9 +22,9 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 
 	UFUNCTION(BlueprintCallable)
-	class AWeaponBase* GetRightWeapon() const { return RightHandWeaponActor; }
+	class AFWWeaponBase* GetRightWeapon() const { return RightHandWeaponActor; }
 	UFUNCTION(BlueprintCallable)
-    class AWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
+    class AFWWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
 
 	
 	/** Returns CameraBoom subobject **/
@@ -108,6 +108,8 @@ protected:
 	void EquipWeapon3();
 	void EquipWeapon(int32 WeaponIdx);
 	void CreateWeapon(struct FInventoryItem InventoryItem);
+
+	void SetAttackPower();
 	
 	UFUNCTION(BlueprintCallable)
     FORCEINLINE bool IsAttacking() const { return bIsAttacking; };
@@ -145,15 +147,15 @@ protected:
 	class UNiagaraSystem* WeaponFXSystem;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Weapons)
-	class AWeaponBase* RightHandWeaponActor;
+	class AFWWeaponBase* RightHandWeaponActor;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Weapons)
-	class AWeaponBase* LeftHandWeaponActor;
+	class AFWWeaponBase* LeftHandWeaponActor;
 	
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AWeaponBase> WeaponClass;
+	TSubclassOf<class AFWWeaponBase> WeaponClass;
 	
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AWeaponBase> WeaponClass2;
+	TSubclassOf<class AFWWeaponBase> WeaponClass2;
 
 private:
 	/** Camera boom positioning the camera behind the character */

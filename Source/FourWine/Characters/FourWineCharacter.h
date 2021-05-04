@@ -41,9 +41,9 @@ public:
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 	UFUNCTION(BlueprintCallable)
-	class AWeaponBase* GetRightWeapon() const { return RightHandWeaponActor; }
+	class AFWWeaponBase* GetRightWeapon() const { return RightHandWeaponActor; }
 	UFUNCTION(BlueprintCallable)
-	class AWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
+	class AFWWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
 
 	void KillNotify(AActor* ActorKilled) const;
 
@@ -185,15 +185,15 @@ protected:
 	class UNiagaraSystem* WeaponFXSystem;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Weapons)
-	class AWeaponBase* RightHandWeaponActor;
+	class AFWWeaponBase* RightHandWeaponActor;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Weapons)
-	class AWeaponBase* LeftHandWeaponActor;
+	class AFWWeaponBase* LeftHandWeaponActor;
 	
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AWeaponBase> WeaponClass;
+	TSubclassOf<class AFWWeaponBase> WeaponClass;
 	
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AWeaponBase> WeaponClass2;
+	TSubclassOf<class AFWWeaponBase> WeaponClass2;
 	
 	UFUNCTION(BlueprintCallable)
 	FORCEINLINE bool IsAttacking() const { return bIsAttacking; };

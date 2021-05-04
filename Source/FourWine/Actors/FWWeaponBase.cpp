@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "WeaponBase.h"
+#include "FWWeaponBase.h"
 #include "FourWine/FourWine.h"
 
 
@@ -15,7 +15,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "AbilitySystemBlueprintLibrary.h"
 
-AWeaponBase::AWeaponBase()
+AFWWeaponBase::AFWWeaponBase()
 {
     StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(FName(TEXT("Static Mesh Component")));
     RootComponent = StaticMeshComponent;
@@ -24,12 +24,12 @@ AWeaponBase::AWeaponBase()
     BoxCollider = CreateDefaultSubobject<UBoxComponent>(FName(TEXT("Box Collider")));
     BoxCollider->SetupAttachment(RootComponent);
     
-    BoxCollider->OnComponentBeginOverlap.AddDynamic(this, &AWeaponBase::BeginOverlap);
+    BoxCollider->OnComponentBeginOverlap.AddDynamic(this, &AFWWeaponBase::BeginOverlap);
     
     CollisionRadius = 50.f;
 }
 
-void AWeaponBase::DoOverlap_Implementation()
+void AFWWeaponBase::DoOverlap_Implementation()
 {
     UE_LOG(LogWeapon, Warning, TEXT("DoOverlap_Implementation being called on %s"), *GetName());
     if(GetOwner() == nullptr) return;
@@ -78,34 +78,39 @@ void AWeaponBase::DoOverlap_Implementation()
     
 }
 
-void AWeaponBase::Setup(FInventoryItem InInventoryItem)
+void AFWWeaponBase::Setup(FInventoryItem InInventoryItem)
 {
     DamageValues = InInventoryItem.DamageValues;
     StaticMeshComponent->SetStaticMesh(InInventoryItem.StaticMesh);
     InventoryItem = InInventoryItem;
 }
 
-void AWeaponBase::StartAttack()
+void AFWWeaponBase::StartAttack()
 {
     bIsAttacking = true;
     ActorsHitDuringThisAttack.Empty();
 }
 
-void AWeaponBase::EndAttack()
+void AFWWeaponBase::EndAttack()
 {
     bIsAttacking = false;
     ActorsHitDuringThisAttack.Empty();
 }
 
-void AWeaponBase::SetOwningActor(AActor* InOwningActor)
+void AFWWeaponBase::SetOwningActor(AActor* InOwningActor)
 {
     OwningActor = Cast<AFourWineCharacter>(InOwningActor);
     OwningActorNew = Cast<AFWPlayerCharacter>(InOwningActor);
 }
 
-void AWeaponBase::BeginOverlap(UPrimitiveComponent* OverlappedComponent,
-                               AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
-                               const FHitResult& SweepResult)
+float AFWWeaponBase::GetDamage() const
+{
+    return DamageValues.DamageSum();
+}
+
+void AFWWeaponBase::BeginOverlap(UPrimitiveComponent* OverlappedComponent,
+                                 AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+                                 const FHitResult& SweepResult)
 {
     if(!bIsAttacking) return;
     if(OtherActor == OwningActor) return;

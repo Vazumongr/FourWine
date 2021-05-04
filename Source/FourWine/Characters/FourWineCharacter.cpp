@@ -18,7 +18,7 @@
 #include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/ActorComponents/HealthComponent.h"
 #include "FourWine/ActorComponents/QuestManager.h"
-#include "FourWine/Actors/WeaponBase.h"
+#include "FourWine/Actors/FWWeaponBase.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FourWine/Items/InventoryComponent.h"
@@ -521,7 +521,7 @@ void AFourWineCharacter::BoxTraceForPickUp()
 
 void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
-	const TSubclassOf<AWeaponBase> SpawningClass = InventoryItem.ItemsClass;
+	const TSubclassOf<AFWWeaponBase> SpawningClass = InventoryItem.ItemsClass;
 	
 	if(LeftHandWeaponActor != nullptr)
 		LeftHandWeaponActor->Destroy();
@@ -529,7 +529,7 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 		RightHandWeaponActor->Destroy();
 	AbilitySystemComponent->ClearAllAbilities();
 
-	RightHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
+	RightHandWeaponActor = GetWorld()->SpawnActor<AFWWeaponBase>(SpawningClass);
 	RightHandWeaponActor->SetOwner(this);
 	RightHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_r"));
 	RightHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,270));
@@ -537,7 +537,7 @@ void AFourWineCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	RightHandWeaponActor->SetOwningActor(this);
 	AddCharacterAbilities(RightHandWeaponActor->GetAbilities());
 	
-	LeftHandWeaponActor = GetWorld()->SpawnActor<AWeaponBase>(SpawningClass);
+	LeftHandWeaponActor = GetWorld()->SpawnActor<AFWWeaponBase>(SpawningClass);
 	LeftHandWeaponActor->SetOwner(this);
 	LeftHandWeaponActor->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("weapon_l"));
 	LeftHandWeaponActor->SetActorRelativeRotation(FRotator(0,0,90));

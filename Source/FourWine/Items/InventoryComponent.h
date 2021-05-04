@@ -30,7 +30,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDamageStruct DamageStruct;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<AWeaponBase> ItemClass;
+	TSubclassOf<AFWWeaponBase> ItemClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMesh* StaticMesh;
 	*/

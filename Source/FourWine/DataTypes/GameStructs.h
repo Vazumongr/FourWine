@@ -49,7 +49,7 @@ struct FInventoryItem
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<class AWeaponBase> ItemsClass;
+	TSubclassOf<class AFWWeaponBase> ItemsClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMesh* StaticMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
