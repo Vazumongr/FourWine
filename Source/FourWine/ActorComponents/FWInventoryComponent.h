@@ -6,18 +6,18 @@
 #include "Components/ActorComponent.h"
 #include "FourWine/DataTypes/GameStructs.h"
 
-#include "InventoryComponent.generated.h"
+#include "FWInventoryComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class FOURWINE_API UInventoryComponent : public UActorComponent
+class FOURWINE_API UFWInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UInventoryComponent();
+	UFWInventoryComponent();
 	
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -26,14 +26,6 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<struct FInventoryItem> Inventory;
-	/*
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FDamageStruct DamageStruct;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<AFWWeaponBase> ItemClass;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UStaticMesh* StaticMesh;
-	*/
 
 		
 };

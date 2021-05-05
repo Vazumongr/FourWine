@@ -24,13 +24,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_MainPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_MainPlayerController.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Inventory/InventoryItemBase.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Inventory/InventoryItemBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Items/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,10 +121,7 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/AttributeSets/FWAttributeSet.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWAbilitySystemComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Abilities/FWGameplayAbility.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/WeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWAIController.h" />
@@ -121,14 +130,22 @@
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -593,6 +610,7 @@
       <workItem from="1620153095180" duration="22000" />
       <workItem from="1620153324345" duration="7462000" />
       <workItem from="1620163722360" duration="119000" />
+      <workItem from="1620220553223" duration="2037000" />
     </task>
     <servers />
   </component>

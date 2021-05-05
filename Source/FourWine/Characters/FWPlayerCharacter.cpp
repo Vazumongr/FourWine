@@ -16,7 +16,7 @@
 #include "FourWine/ActorComponents/QuestManager.h"
 #include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
-#include "FourWine/Items/InventoryComponent.h"
+#include "FourWine/ActorComponents/FWInventoryComponent.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/Actors/FWWeaponBase.h"
@@ -58,7 +58,7 @@ AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializ
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 	
 	// Setup HealthComponent
-	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory Component"));
+	InventoryComponent = CreateDefaultSubobject<UFWInventoryComponent>(TEXT("Inventory Component"));
 
 	// Setup HealthComponent
 	QuestManager = CreateDefaultSubobject<UQuestManager>(TEXT("Quest Manager"));
@@ -89,6 +89,11 @@ void AFWPlayerCharacter::PossessedBy(AController* NewController)
 
 		AddCharacterAbilities(DefaultAbilities);
 	}
+}
+
+TArray<FInventoryItem>& AFWPlayerCharacter::GetInventory()
+{
+	return InventoryComponent->Inventory;
 }
 
 void AFWPlayerCharacter::KillNotify(AActor* ActorKilled) const

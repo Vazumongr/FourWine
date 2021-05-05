@@ -28,7 +28,7 @@ class FOURWINE_API AFourWineCharacter : public ACharacter, public IAbilitySystem
 	
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	class UInventoryComponent* InventoryComponent;
+	class UFWInventoryComponent* InventoryComponent;
 	
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))

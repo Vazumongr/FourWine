@@ -21,7 +21,7 @@
 #include "FourWine/Actors/FWWeaponBase.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/DataTypes/GameStructs.h"
-#include "FourWine/Items/InventoryComponent.h"
+#include "FourWine/ActorComponents/FWInventoryComponent.h"
 #include "Fourwine/FourWine.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 #include "FourWine/Abilities/FWGameplayAbility.h"
@@ -70,7 +70,7 @@ AFourWineCharacter::AFourWineCharacter(const class FObjectInitializer& ObjectIni
 	HealthComponent->SetHealthValue(100);
 	
 	// Setup HealthComponent
-	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory Component"));
+	InventoryComponent = CreateDefaultSubobject<UFWInventoryComponent>(TEXT("Inventory Component"));
 
 	// Setup HealthComponent
 	QuestManager = CreateDefaultSubobject<UQuestManager>(TEXT("Quest Manager"));

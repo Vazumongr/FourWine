@@ -1,11 +1,11 @@
 // Troy Records Jr. 2021
 
 
-#include "InventoryComponent.h"
+#include "FWInventoryComponent.h"
 
 
 // Sets default values for this component's properties
-UInventoryComponent::UInventoryComponent()
+UFWInventoryComponent::UFWInventoryComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -14,23 +14,17 @@ UInventoryComponent::UInventoryComponent()
 
 
 // Called when the game starts
-void UInventoryComponent::BeginPlay()
+void UFWInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void UInventoryComponent::AddItemToInventory(FInventoryItem InventoryItem)
+void UFWInventoryComponent::AddItemToInventory(FInventoryItem InventoryItem)
 {
-	/*
-	FInventoryItem InventoryItem;
-	InventoryItem.DamageValues = DamageStruct;
-	InventoryItem.ItemsClass = ItemClass;
-	InventoryItem.StaticMesh = StaticMesh;
-	*/
 	Inventory.Add(InventoryItem);
 }
 
-bool UInventoryComponent::GetInventoryItem(int32 Index, FInventoryItem& InventoryItem)
+bool UFWInventoryComponent::GetInventoryItem(int32 Index, FInventoryItem& InventoryItem)
 {
 	if(Index + 1 > Inventory.Num()) return false;
 	InventoryItem = Inventory[Index];

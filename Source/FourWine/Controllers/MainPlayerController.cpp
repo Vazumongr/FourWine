@@ -7,19 +7,21 @@
 #include "AbilitySystemComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "FourWine/Widgets/QuestJournalWidget.h"
-#include "FourWine/Characters/FourWineCharacter.h"
+#include "FourWine/Widgets/FWInventoryWidget.h"
+#include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 
 void AMainPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
     InputComponent->BindAction("OpenQuestJournal", IE_Pressed, this, &AMainPlayerController::OpenQuestJournal);
+    InputComponent->BindAction("OpenInventory", IE_Pressed, this, &AMainPlayerController::OpenInventory);
 }
 
 void AMainPlayerController::OnPossess(APawn* InPawn)
 {
     Super::OnPossess(InPawn);
-    PlayerCharacter = Cast<AFourWineCharacter>(InPawn);
+    PlayerCharacter = Cast<AFWPlayerCharacter>(InPawn);
     AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
     if(PS)
     {
@@ -41,4 +43,18 @@ void AMainPlayerController::OpenQuestJournal()
         QuestJournalWidget = nullptr;
     }
     
+}
+
+void AMainPlayerController::OpenInventory()
+{
+    if(InventoryWidget == nullptr)
+    {
+        InventoryWidget = CreateWidget<UFWInventoryWidget>(this, InventoryWidgetClass);
+        InventoryWidget->SetInventoryReference(PlayerCharacter->GetInventory());
+    }
+    else
+    {
+        InventoryWidget->RemoveFromViewport();
+        InventoryWidget = nullptr;
+    }
 }

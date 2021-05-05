@@ -26,6 +26,8 @@ public:
 	UFUNCTION(BlueprintCallable)
     class AFWWeaponBase* GetLeftWeapon() const { return LeftHandWeaponActor; }
 
+	TArray<struct FInventoryItem>& GetInventory();
+
 	
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
@@ -172,7 +174,7 @@ private:
 	
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	class UInventoryComponent* InventoryComponent;
+	class UFWInventoryComponent* InventoryComponent;
 	
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))

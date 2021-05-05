@@ -25,13 +25,20 @@ protected:
 private:
 	UFUNCTION()
 	void OpenQuestJournal();
+	UFUNCTION()
+	void OpenInventory();
 	
 	UPROPERTY()
-	class AFourWineCharacter* PlayerCharacter;
+	class AFWPlayerCharacter* PlayerCharacter;
 
 	UPROPERTY()
 	class UQuestJournalWidget* QuestJournalWidget;
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<UQuestJournalWidget> QuestJournalWidgetClass;
+	
+	UPROPERTY()
+	class UFWInventoryWidget* InventoryWidget;
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<class UFWInventoryWidget> InventoryWidgetClass;
 	
 };
