@@ -108,7 +108,9 @@ protected:
 	void EquipWeapon1();
 	void EquipWeapon2();
 	void EquipWeapon3();
+public:
 	void EquipWeapon(int32 WeaponIdx);
+protected:
 	void CreateWeapon(struct FInventoryItem InventoryItem);
 
 	void SetAttackPower();

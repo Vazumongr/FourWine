@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "Blueprint/UserWidget.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FWInventoryWidget.generated.h"
@@ -18,10 +19,14 @@ class FOURWINE_API UFWInventoryWidget : public UUserWidget
 public:
 
 	void SetInventoryReference(TArray<struct FInventoryItem> InInventoryItems);
+	void Setup();
+	void TearDown();
 	
-	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
-	class UTextBlock* ItemName;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<struct FInventoryItem> InventoryItems;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<class UFWInventoryItemWidget> ItemClass;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (BindWidget))
+	class UScrollBox* ItemBoxes;
 	
 };

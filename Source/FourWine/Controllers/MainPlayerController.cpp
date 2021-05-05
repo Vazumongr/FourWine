@@ -51,10 +51,11 @@ void AMainPlayerController::OpenInventory()
     {
         InventoryWidget = CreateWidget<UFWInventoryWidget>(this, InventoryWidgetClass);
         InventoryWidget->SetInventoryReference(PlayerCharacter->GetInventory());
+        InventoryWidget->Setup();
     }
     else
     {
-        InventoryWidget->RemoveFromViewport();
+        InventoryWidget->TearDown();
         InventoryWidget = nullptr;
     }
 }
