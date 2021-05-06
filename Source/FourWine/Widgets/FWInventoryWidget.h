@@ -18,12 +18,13 @@ class FOURWINE_API UFWInventoryWidget : public UUserWidget
 
 public:
 
-	void SetInventoryReference(TArray<struct FInventoryItem> InInventoryItems);
+	void SetupInventoryDisplay();
 	void Setup();
 	void TearDown();
+
+	UPROPERTY()
+	class UFWInventoryComponent* InventoryComponent;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TArray<struct FInventoryItem> InventoryItems;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<class UFWInventoryItemWidget> ItemClass;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (BindWidget))

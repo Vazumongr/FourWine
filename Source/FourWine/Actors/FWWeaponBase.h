@@ -63,7 +63,5 @@ private:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, meta = (AllowPrivateAccess))
 	float CollisionRadius;
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, meta = (AllowPrivateAccess))
-	class AFourWineCharacter* OwningActor;
-	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, meta = (AllowPrivateAccess))
-	class AFWCharacterBase* OwningActorNew;
+	class AFWCharacterBase* OwningActor;
 };

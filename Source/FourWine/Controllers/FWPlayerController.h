@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "MainPlayerController.generated.h"
+#include "FWPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class FOURWINE_API AMainPlayerController : public APlayerController
+class FOURWINE_API AFWPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 

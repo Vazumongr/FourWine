@@ -7,7 +7,6 @@
 
 #include "AbilitySystemComponent.h"
 #include "Components/BoxComponent.h"
-#include "FourWine/Characters/FourWineCharacter.h"
 #include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FourWine/Interfaces/HealthComponentInterface.h"
@@ -31,31 +30,24 @@ AFWWeaponBase::AFWWeaponBase()
 
 void AFWWeaponBase::DoOverlap_Implementation()
 {
-    UE_LOG(LogWeapon, Warning, TEXT("DoOverlap_Implementation being called on %s"), *GetName());
+    UE_LOG(LogWeapon, Display, TEXT("DoOverlap_Implementation being called on %s"), *GetName());
     if(GetOwner() == nullptr) return;
     if(OwningActor == nullptr)
     {
         UE_LOG(LogWeapon, Warning, TEXT("OwningActor is not set on %s!"), *GetName());
         //return;
     }
-    if(OwningActorNew == nullptr)
-    {
-        UE_LOG(LogWeapon, Warning, TEXT("OwningActorNew is not set on %s!"), *GetName());
-        //return;
-    }
     
     FVector SphereLocation = StaticMeshComponent->GetSocketLocation(FName("CollisionSocket"));
     TArray<AActor*> ActorsHitOnThisTrace;   // These are the folk we do damage too!
-    ActorsHitDuringThisAttack.Add(OwningActorNew);
+    ActorsHitDuringThisAttack.Add(OwningActor);
     UKismetSystemLibrary::SphereOverlapActors(this, SphereLocation, CollisionRadius, ObjectTypes, nullptr, ActorsHitDuringThisAttack, ActorsHitOnThisTrace);
     ActorsHitDuringThisAttack.Append(ActorsHitOnThisTrace);
-    if(OwningActorNew->bDebugMelee)
+    if(OwningActor->bDebugMelee)
         UKismetSystemLibrary::DrawDebugSphere(this, SphereLocation, CollisionRadius, 12, FLinearColor::Green, 2.f);
     UAbilitySystemComponent* AbilitySystemComponent;
     if(OwningActor != nullptr)
         AbilitySystemComponent = OwningActor->GetAbilitySystemComponent();
-    else if(OwningActorNew != nullptr)
-        AbilitySystemComponent = OwningActorNew->GetAbilitySystemComponent();
     else
         return;
         
@@ -66,12 +58,6 @@ void AFWWeaponBase::DoOverlap_Implementation()
         FGameplayEventData Payload;
         
         Payload.Instigator = this;
-        /*
-        if(OwningActor != nullptr)
-            Payload.Target = OwningActor;
-        else if(OwningActorNew != nullptr)
-            Payload.Target = OwningActorNew;
-            */
         Payload.ContextHandle = AbilitySystemComponent->MakeEffectContext();
         Payload.EventTag = EventTag;
         Payload.TargetData = UAbilitySystemBlueprintLibrary::AbilityTargetDataFromActorArray(ActorsHitOnThisTrace, false);
@@ -103,8 +89,7 @@ void AFWWeaponBase::EndAttack()
 
 void AFWWeaponBase::SetOwningActor(AActor* InOwningActor)
 {
-    OwningActor = Cast<AFourWineCharacter>(InOwningActor);
-    OwningActorNew = Cast<AFWPlayerCharacter>(InOwningActor);
+    OwningActor = Cast<AFWPlayerCharacter>(InOwningActor);
 }
 
 float AFWWeaponBase::GetDamage() const
@@ -130,7 +115,7 @@ void AFWWeaponBase::BeginOverlap(UPrimitiveComponent* OverlappedComponent,
         
             if(OtherActorInterface->TakeDamage(DamageValues, GetWorld()->GetFirstPlayerController(), OwningActor))
             {
-                if(AFourWineCharacter* PlayerCharacter = Cast<AFourWineCharacter>(OwningActor))
+                if(AFWPlayerCharacter* PlayerCharacter = Cast<AFWPlayerCharacter>(OwningActor))
                 {
                     PlayerCharacter->KillNotify(OtherActor);
                 }

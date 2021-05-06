@@ -2,18 +2,22 @@
 
 
 #include "FWInventoryWidget.h"
-#include "Components/ScrollBox.h"
 #include "FWInventoryItemWidget.h"
-
-
+#include "Components/ScrollBox.h"
+#include "FourWine/ActorComponents/FWInventoryComponent.h"
+#include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/FourWine.h"
 
-void UFWInventoryWidget::SetInventoryReference(TArray<FInventoryItem> InInventoryItems)
+void UFWInventoryWidget::SetupInventoryDisplay()
 {
-	InventoryItems = InInventoryItems;
-	UE_LOG(LogInventory, Warning, TEXT("Number of items received: %i"), InventoryItems.Num());
+	if(!ensure(InventoryComponent))
+	{
+		UE_LOG(LogInventory, Error, TEXT("InventoryComponent not found!"));
+		return;
+	}
+
 	int32 Idx = 0;
-	for(FInventoryItem& Item: InventoryItems)
+	for(const FInventoryItem& Item : InventoryComponent->Inventory)
 	{
 		UFWInventoryItemWidget* Widget = CreateWidget<UFWInventoryItemWidget>(this, ItemClass);
 		Widget->Item = Item;
@@ -21,6 +25,7 @@ void UFWInventoryWidget::SetInventoryReference(TArray<FInventoryItem> InInventor
 		ItemBoxes->AddChild(Widget);
 		Idx++;
 	}
+	
 }
 
 void UFWInventoryWidget::Setup()
@@ -28,7 +33,7 @@ void UFWInventoryWidget::Setup()
 	AddToViewport();
 	bIsFocusable = true;
 
-	FInputModeUIOnly InputModeData;
+	FInputModeGameAndUI InputModeData;
 	InputModeData.SetWidgetToFocus(TakeWidget());
 	InputModeData.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
 
@@ -40,6 +45,13 @@ void UFWInventoryWidget::Setup()
     
 	PlayerController->SetInputMode(InputModeData);
 	PlayerController->bShowMouseCursor = true;
+	
+	AFWPlayerCharacter* PlayerCharacter = PlayerController->GetPawn<AFWPlayerCharacter>();
+	if(!ensure(PlayerCharacter)) return;
+
+	InventoryComponent = PlayerCharacter->GetInventoryComponent();
+	SetupInventoryDisplay();
+	
 }
 
 void UFWInventoryWidget::TearDown()

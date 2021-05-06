@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "MainPlayerController.h"
+#include "FWPlayerController.h"
 
 
 #include "AbilitySystemComponent.h"
@@ -11,14 +11,14 @@
 #include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 
-void AMainPlayerController::SetupInputComponent()
+void AFWPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
-    InputComponent->BindAction("OpenQuestJournal", IE_Pressed, this, &AMainPlayerController::OpenQuestJournal);
-    InputComponent->BindAction("OpenInventory", IE_Pressed, this, &AMainPlayerController::OpenInventory);
+    InputComponent->BindAction("OpenQuestJournal", IE_Pressed, this, &AFWPlayerController::OpenQuestJournal);
+    InputComponent->BindAction("OpenInventory", IE_Pressed, this, &AFWPlayerController::OpenInventory);
 }
 
-void AMainPlayerController::OnPossess(APawn* InPawn)
+void AFWPlayerController::OnPossess(APawn* InPawn)
 {
     Super::OnPossess(InPawn);
     PlayerCharacter = Cast<AFWPlayerCharacter>(InPawn);
@@ -29,7 +29,7 @@ void AMainPlayerController::OnPossess(APawn* InPawn)
     }
 }
 
-void AMainPlayerController::OpenQuestJournal()
+void AFWPlayerController::OpenQuestJournal()
 {
     UE_LOG(LogTemp, Warning, TEXT("Opening quest journal"));
     if(QuestJournalWidget == nullptr)
@@ -45,12 +45,11 @@ void AMainPlayerController::OpenQuestJournal()
     
 }
 
-void AMainPlayerController::OpenInventory()
+void AFWPlayerController::OpenInventory()
 {
-    if(InventoryWidget == nullptr)
+    if(InventoryWidget == nullptr)  // Wasn't made yet, so make it.
     {
         InventoryWidget = CreateWidget<UFWInventoryWidget>(this, InventoryWidgetClass);
-        InventoryWidget->SetInventoryReference(PlayerCharacter->GetInventory());
         InventoryWidget->Setup();
     }
     else
@@ -58,4 +57,16 @@ void AMainPlayerController::OpenInventory()
         InventoryWidget->TearDown();
         InventoryWidget = nullptr;
     }
+    /* TODO make to toggle eventually
+    if(InventoryWidget->IsVisible())
+    {
+        // Make invisible
+        InventoryWidget->SetVisibility(ESlateVisibility::Collapsed);
+    }
+    else
+    {
+        // Make visible
+        InventoryWidget->SetVisibility(ESlateVisibility::Visible);
+    }
+    */
 }

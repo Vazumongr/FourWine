@@ -28,7 +28,7 @@ public:
 
 	TArray<struct FInventoryItem>& GetInventory();
 
-	
+	FORCEINLINE class UFWInventoryComponent* GetInventoryComponent() const { return InventoryComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/

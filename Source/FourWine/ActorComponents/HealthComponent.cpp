@@ -4,7 +4,6 @@
 #include "HealthComponent.h"
 
 
-#include "FourWine/Characters/FourWineCharacter.h"
 #include "FourWine/Interfaces/HealthComponentInterface.h"
 
 // Sets default values for this component's properties
@@ -52,10 +51,6 @@ bool UHealthComponent::TakeDamage(FDamageStruct const& DamageStruct, AController
 			OwningInterface->HealthIsZero();
 		
 		return true;
-		
-		/*if(AFourWineCharacter* ActorThatKilledMe = Cast<AFourWineCharacter>(CausingActor))	//not what i needed but gotta poop
-			ActorThatKilledMe->KillNotify(GetOwner());
-		*/
 	}
 	return false;
 }
