@@ -24,15 +24,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Actors/BP_Wisp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Actors/NE_Wisp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Actors/NS_Wisp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Materials/M_Wisp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" afterDir="false" />
@@ -144,9 +140,9 @@
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
     </changedPaths>
   </component>
   <component name="PerforceDirect.Settings">
@@ -616,6 +612,7 @@
       <workItem from="1620324028226" duration="5011000" />
       <workItem from="1620605845404" duration="840000" />
       <workItem from="1620606960460" duration="8655000" />
+      <workItem from="1620650998610" duration="8463000" />
     </task>
     <servers />
   </component>

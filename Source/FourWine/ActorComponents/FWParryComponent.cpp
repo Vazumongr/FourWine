@@ -2,7 +2,9 @@
 
 #include "FWParryComponent.h"
 
+#include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/FourWine.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 UFWParryComponent::UFWParryComponent()
 {
@@ -29,7 +31,7 @@ void UFWParryComponent::BeginPlay()
 			Wisp->SetOwner(GetOwner());
 			Wisp->AttachToActor(GetOwner(), FAttachmentTransformRules::KeepRelativeTransform);
 			UE_LOG(LogPlayer, Warning, TEXT("Owners location: %s"), *GetOwner()->GetActorLocation().ToString());
-			Wisp->GetRootComponent()->SetAbsolute(false, true, false);
+			Wisp->GetRootComponent()->SetAbsolute(true, true, false);
 			Wisp->SetActorLocation(GetOwner()->GetActorLocation());
 		}
 		else
@@ -39,11 +41,8 @@ void UFWParryComponent::BeginPlay()
 	}
 }
 
-void UFWParryComponent::TickComponent(float DeltaTime, ELevelTick TickType,
-	FActorComponentTickFunction* ThisTickFunction)
+void UFWParryComponent::Orbit(float DeltaTime)
 {
-	if(Wisp == nullptr) return;
-
 	UpperBound = GetOwner()->GetActorLocation().Z + HeightVariance;
 	LowerBound = GetOwner()->GetActorLocation().Z - HeightVariance;
 	
@@ -58,20 +57,81 @@ void UFWParryComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	{
 		ZCord -= ElevationSpeed * DeltaTime;
 	}
-	//ZCord = bGoingUp ? ElevationSpeed * DeltaTime : ElevationSpeed * DeltaTime * -1;
+
 	const FVector ElevateVector{0,0,ZCord};
-	//Wisp->SetActorLocation(Wisp->GetActorLocation() + ElevateVector);
+
 	const FVector OrbitVector{XCord, YCord, 0};
-			UE_LOG(LogPlayer, Warning, TEXT("AdjustmentVector:		%s"), *OrbitVector.ToString());
 
-	UE_LOG(LogPlayer, Warning, TEXT("OwnerActorLocation:		%s"), *GetOwner()->GetActorLocation().ToString());
 	Wisp->SetActorLocation(GetOwner()->GetActorLocation() + OrbitVector + ElevateVector);
-	UE_LOG(LogPlayer, Warning, TEXT("WispActorLocation:		%s"), *Wisp->GetActorLocation().ToString());
 
-	
 	if((Wisp->GetActorLocation().Z > UpperBound && bGoingUp) || (Wisp->GetActorLocation().Z < LowerBound && !bGoingUp))
 	{
-		UE_LOG(LogTemp, Error, TEXT("FLIPPING!"));
 		bGoingUp = !bGoingUp;
 	}
+}
+
+void UFWParryComponent::Lerp(float DeltaTime)
+{
+	if(!bSetStartLocation)
+	{
+		FDateTime Time = FDateTime::Now();
+		UE_LOG(LogWisp, Warning, TEXT("Start time: %s | %i"), *Time.ToString(), Time.GetMillisecond())
+			
+		StartLocation = Wisp->GetActorLocation();
+		bSetStartLocation = true;
+	}
+	DesiredLocation = Cast<AFWPlayerCharacter>(GetOwner())->DebugParryComponent->GetWispLocation();
+	DisplacementVector = DesiredLocation - GetOwner()->GetActorLocation();
+	float Scalar = Radius / DisplacementVector.Size();
+	DisplacementVector *= Scalar;
+	FVector EndLocation = GetOwner()->GetActorLocation() + DisplacementVector;
+	InterpAlpha += InterpSpeed * DeltaTime;
+	Wisp->SetActorLocation(FMath::Lerp(StartLocation, EndLocation, InterpAlpha));
+	if(InterpAlpha >= 1.f)
+	{
+		WispState = EWispState::Resting;
+		FDateTime Time = FDateTime::Now();
+		UE_LOG(LogWisp, Warning, TEXT("End time: %s | %i"), *Time.ToString(), Time.GetMillisecond())
+		const FVector WispLocation = Wisp->GetActorLocation();
+		const FVector CharacterLocation = GetOwner()->GetActorLocation();
+		RestLocationRelative = WispLocation - CharacterLocation;
+	}
+	UKismetSystemLibrary::DrawDebugLine(this,GetOwner()->GetActorLocation(),DesiredLocation,FLinearColor::Blue,5.f,1);
+}
+
+void UFWParryComponent::TickComponent(float DeltaTime, ELevelTick TickType,
+                                      FActorComponentTickFunction* ThisTickFunction)
+{
+	if(Wisp == nullptr) return;
+
+	if(WispState == EWispState::Orbiting)
+	{
+		Orbit(DeltaTime);
+		bSetStartLocation = false;
+		InterpAlpha = 0.f;
+	}
+	else if(WispState == EWispState::Lerping)
+	{
+		Lerp(DeltaTime);
+	}
+	else if(WispState == EWispState::Resting)
+	{
+		InterpAlpha = 0.f;
+		Wisp->SetActorLocation(GetOwner()->GetActorLocation() + RestLocationRelative);
+	}
+
+	const FVector WispLocation = Wisp->GetActorLocation();
+	const FVector CharacterLocation = GetOwner()->GetActorLocation();
+	const FVector WispLocationRelative = WispLocation - CharacterLocation;
+	UE_LOG(LogWisp, Error, TEXT("WispLocation:				%s"), *WispLocation.ToString());
+	UE_LOG(LogWisp, Error, TEXT("CharacterLocation:			%s"), *CharacterLocation.ToString());
+	UE_LOG(LogWisp, Error, TEXT("WispLocationRelative:		%s"), *WispLocationRelative.ToString());
+	
+	
+	
+}
+
+FVector UFWParryComponent::GetWispLocation()
+{
+	return Wisp->GetActorLocation();
 }

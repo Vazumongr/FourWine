@@ -185,4 +185,8 @@ private:
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	class UFWParryComponent* ParryComponent;
+public:
+	/** Follow camera */
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	class UFWParryComponent* DebugParryComponent;
 };

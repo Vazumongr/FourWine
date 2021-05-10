@@ -71,6 +71,7 @@ AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializ
 	WeaponFXComponent->SetupAttachment(RootComponent);
 
 	ParryComponent = CreateDefaultSubobject<UFWParryComponent>(TEXT("Parry Component"));
+	DebugParryComponent = CreateDefaultSubobject<UFWParryComponent>(TEXT("Debug Parry Component"));
 	
 }
 
@@ -267,7 +268,15 @@ void AFWPlayerCharacter::SwitchShoulder()
 
 void AFWPlayerCharacter::OrientToMovement()
 {
-	GetCharacterMovement()->bOrientRotationToMovement = !GetCharacterMovement()->bOrientRotationToMovement;
+	//GetCharacterMovement()->bOrientRotationToMovement = !GetCharacterMovement()->bOrientRotationToMovement;
+	if(ParryComponent->WispState != EWispState::Orbiting)
+	{
+		ParryComponent->WispState = EWispState::Orbiting;
+	}else if(ParryComponent->WispState == EWispState::Orbiting)
+	{
+		ParryComponent->WispState = EWispState::Lerping;
+	}
+	
 }
 
 void AFWPlayerCharacter::Attack()

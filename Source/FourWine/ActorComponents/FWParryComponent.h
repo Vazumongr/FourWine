@@ -7,10 +7,18 @@
 
 #include "FWParryComponent.generated.h"
 
+UENUM()
+enum class EWispState : uint8
+{
+	Orbiting	= 0,
+	Lerping		= 1,
+	Resting		= 2
+};
+
 /*
  *
  */
-UCLASS()
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class FOURWINE_API UFWParryComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -20,7 +28,11 @@ class FOURWINE_API UFWParryComponent : public UActorComponent
 public:
 
 	virtual void BeginPlay() override;
+	void Orbit(float DeltaTime);
+	void Lerp(float DeltaTime);
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	FVector GetWispLocation();
 
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -45,6 +57,24 @@ public:
 	float LowerBound;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bGoingUp = true;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bOrbiting = true;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bSetStartLocation = false;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float InterpSpeed = 10.f;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float InterpAlpha = 0.f;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	FVector StartLocation;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FVector DisplacementVector;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FVector DesiredLocation;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	FVector RestLocationRelative;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	EWispState WispState = EWispState::Orbiting;
 	
 	
 	UPROPERTY(VisibleAnywhere)
