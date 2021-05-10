@@ -17,6 +17,7 @@
 #include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
 #include "FourWine/ActorComponents/FWInventoryComponent.h"
+#include "FourWine/ActorComponents/FWParryComponent.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
 #include "FourWine/Actors/LootBase.h"
 #include "FourWine/Actors/FWWeaponBase.h"
@@ -68,6 +69,9 @@ AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializ
 
 	WeaponFXComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Weapon FX Component"));
 	WeaponFXComponent->SetupAttachment(RootComponent);
+
+	ParryComponent = CreateDefaultSubobject<UFWParryComponent>(TEXT("Parry Component"));
+	
 }
 
 void AFWPlayerCharacter::PossessedBy(AController* NewController)

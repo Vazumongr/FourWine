@@ -181,4 +181,8 @@ private:
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	class UQuestManager* QuestManager;
+	
+	/** Follow camera */
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	class UFWParryComponent* ParryComponent;
 };
