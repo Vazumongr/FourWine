@@ -52,6 +52,8 @@ public:
 protected:
 	
 	virtual void BeginPlay() override;
+
+	virtual void OnConstruction(const FTransform& Transform) override;
 	
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -108,6 +110,7 @@ protected:
 	void EquipWeapon1();
 	void EquipWeapon2();
 	void EquipWeapon3();
+	void Parry();
 public:
 	void EquipWeapon(int32 WeaponIdx);
 protected:
@@ -129,14 +132,6 @@ protected:
 	float WalkSpeed = 600.f;
 	UPROPERTY(EditAnywhere)
 	float SprintModifier = 1.3f;
-	UPROPERTY(EditAnywhere)
-	UAnimMontage* FirstAttack;
-	UPROPERTY(EditAnywhere)
-	UAnimMontage* SecondAttack;
-	UPROPERTY(EditAnywhere)
-	UAnimMontage* ThirdAttack;
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<UAnimInstance> AnimInstance;
 	bool bIsSprinting = false;
 	UPROPERTY(BlueprintGetter=IsAttacking)
 	bool bIsAttacking = false;		// We are in attack animation
@@ -144,6 +139,8 @@ protected:
 	uint8 AttackNumber = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	bool bDoBinding = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	bool bDebugParry = true;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (AllowPrivateAccess))
 	class UNiagaraComponent* WeaponFXComponent;
@@ -154,12 +151,6 @@ protected:
 	class AFWWeaponBase* RightHandWeaponActor;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess), Category = Weapons)
 	class AFWWeaponBase* LeftHandWeaponActor;
-	
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AFWWeaponBase> WeaponClass;
-	
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AFWWeaponBase> WeaponClass2;
 
 private:
 	/** Camera boom positioning the camera behind the character */
@@ -169,10 +160,6 @@ private:
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
-	
-	/** Follow camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	class UHealthComponent* HealthComponent;
 	
 	/** Follow camera */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))

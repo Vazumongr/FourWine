@@ -23,23 +23,30 @@ void ALootBase::PickUp(FInventoryItem& OutInventoryItem)
 	Destroy();
 }
 
+void ALootBase::PickUp(FLootData& OutData)
+{
+	OutData = LootData;
+	Destroy();
+}
+
 // Called when the game starts or when spawned
 void ALootBase::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if(DataAsset != nullptr)
+	float x,y,z;
+	if(bRandomLoot)
 	{
-		TArray<UStaticMesh*> StaticMeshes = DataAsset->StaticMeshes;
+		if(DataAsset != nullptr)
+		{
+			TArray<UStaticMesh*> StaticMeshes = DataAsset->StaticMeshes;
         
-        StaticMeshComponent->SetStaticMesh(StaticMeshes[FMath::RandRange(0, StaticMeshes.Num() - 1)]);
+			StaticMeshComponent->SetStaticMesh(StaticMeshes[FMath::RandRange(0, StaticMeshes.Num() - 1)]);
+		}
+		x = FMath::RandRange(0,30);
+		y = FMath::RandRange(0,30);
+		z = FMath::RandRange(0,30);
 	}
-
-	float x = FMath::RandRange(0,30);
-	float y = FMath::RandRange(0,30);
-	float z = FMath::RandRange(0,30);
 	InventoryItem.DamageValues = FDamageStruct{x,y,z};
-	//InventoryItem.ItemsClass = StaticClass();
 	InventoryItem.StaticMesh = StaticMeshComponent->GetStaticMesh();
 	
 }

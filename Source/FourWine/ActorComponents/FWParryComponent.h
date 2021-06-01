@@ -18,7 +18,7 @@ enum class EWispState : uint8
 /*
  *
  */
-UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class FOURWINE_API UFWParryComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -28,11 +28,25 @@ class FOURWINE_API UFWParryComponent : public UActorComponent
 public:
 
 	virtual void BeginPlay() override;
+
+	void Parry(bool InDebug);
+	FVector FindElevateVector(float DeltaTime);
+	FVector FindOrbitVector(float DeltaTime);
+
 	void Orbit(float DeltaTime);
 	void Lerp(float DeltaTime);
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	FVector GetWispLocation();
+	FORCEINLINE AActor* GetWisp() { return Wisp; }
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SpawnParryFX();
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<AActor*> ParryableActors;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	AActor* ParryTarget;
 
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -77,7 +91,7 @@ public:
 	EWispState WispState = EWispState::Orbiting;
 	
 	
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	AActor* Wisp;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

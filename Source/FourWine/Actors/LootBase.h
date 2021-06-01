@@ -18,14 +18,20 @@ public:
 	ALootBase();
 
 	void PickUp(FInventoryItem& InventoryItem);
+	void PickUp(FLootData& InventoryItem);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FInventoryItem InventoryItem;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FLootData LootData;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* StaticMeshComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class ULootDataAsset* DataAsset;
+
+	UPROPERTY(EditAnywhere)
+	bool bRandomLoot = true;
 
 protected:
 	// Called when the game starts or when spawned

@@ -24,10 +24,17 @@ void UFWInventoryComponent::AddItemToInventory(FInventoryItem InventoryItem)
 	Inventory.Add(InventoryItem);
 }
 
+void UFWInventoryComponent::AddLootToInventory(FLootData InLootData)
+{
+	const FInventoryItem InventoryItem = FInventoryItem(InLootData);
+	Inventory.Add(InventoryItem);
+}
+
 bool UFWInventoryComponent::GetInventoryItem(int32 Index, FInventoryItem& InventoryItem)
 {
 	if(Index + 1 > Inventory.Num()) return false;
 	InventoryItem = Inventory[Index];
-	Inventory.RemoveAt(Index);
+	InventoryItem.bIsEquipped = true;
+	//Inventory.RemoveAt(Index);
 	return true;
 }

@@ -44,9 +44,11 @@ struct FDamageStruct
 };
 
 USTRUCT(BlueprintType)
-struct FInventoryItem
+struct FLootData
 {
 	GENERATED_BODY()
+
+	FLootData() { StaticMesh = nullptr; }
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class AFWWeaponBase> ItemsClass;
@@ -54,4 +56,48 @@ struct FInventoryItem
 	class UStaticMesh* StaticMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDamageStruct DamageValues;
+};
+
+USTRUCT(BlueprintType)
+struct FInventoryItem
+{
+	GENERATED_BODY()
+
+	FInventoryItem(FLootData InLootData)
+	{
+		ItemsClass = InLootData.ItemsClass;
+		StaticMesh = InLootData.StaticMesh;
+		DamageValues = InLootData.DamageValues;
+		LootData = InLootData;
+	}
+
+	FInventoryItem() { StaticMesh = nullptr; }
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AFWWeaponBase> ItemsClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UStaticMesh* StaticMesh;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FDamageStruct DamageValues;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FLootData LootData;
+	
+	FGuid ItemID = FGuid::NewGuid();
+	bool bIsEquipped = false;
+};
+
+USTRUCT(BlueprintType)
+struct FStructConverter
+{
+	GENERATED_BODY()
+
+	static FLootData InventoryItemToLootData(FInventoryItem InItem)
+	{
+		return InItem.LootData;
+	}
+
+	static FInventoryItem LootDataToInventoryItem(FLootData InData)
+	{
+		return FInventoryItem(InData);
+	}
 };

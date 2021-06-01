@@ -41,14 +41,32 @@ void UFWParryComponent::BeginPlay()
 	}
 }
 
-void UFWParryComponent::Orbit(float DeltaTime)
+void UFWParryComponent::Parry(bool InDebug)
 {
-	UpperBound = GetOwner()->GetActorLocation().Z + HeightVariance;
-	LowerBound = GetOwner()->GetActorLocation().Z - HeightVariance;
+	if(InDebug)
+	{
+		if(WispState != EWispState::Orbiting)
+		{
+			WispState = EWispState::Orbiting;
+		}else if(WispState == EWispState::Orbiting)
+		{
+			WispState = EWispState::Lerping;
+		}
+	}
+	else
+	{
+		if(ParryableActors.Num() > 0)
+		{
+			ParryTarget = ParryableActors[0];
+			UE_LOG(LogWisp, Warning, TEXT("ParryTarget: %s"), *ParryTarget->GetName());
+			WispState = EWispState::Lerping;
+		}
+	}
 	
-	Angle += RotationSpeed * DeltaTime;
-	XCord = Radius * FMath::Cos(Angle);
-	YCord = Radius * FMath::Sin(Angle);
+}
+
+FVector UFWParryComponent::FindElevateVector(float DeltaTime)
+{
 	if(bGoingUp)
 	{
 		ZCord += ElevationSpeed * DeltaTime;
@@ -57,10 +75,25 @@ void UFWParryComponent::Orbit(float DeltaTime)
 	{
 		ZCord -= ElevationSpeed * DeltaTime;
 	}
+	return FVector{0,0,ZCord};
+}
 
-	const FVector ElevateVector{0,0,ZCord};
+FVector UFWParryComponent::FindOrbitVector(float DeltaTime)
+{
+	Angle += RotationSpeed * DeltaTime;
+	XCord = Radius * FMath::Cos(Angle);
+	YCord = Radius * FMath::Sin(Angle);
+	return FVector{XCord, YCord, 0};
+}
 
-	const FVector OrbitVector{XCord, YCord, 0};
+void UFWParryComponent::Orbit(float DeltaTime)
+{
+	UpperBound = GetOwner()->GetActorLocation().Z + HeightVariance;
+	LowerBound = GetOwner()->GetActorLocation().Z - HeightVariance;
+
+	const FVector ElevateVector{FindElevateVector(DeltaTime)};
+
+	const FVector OrbitVector{FindOrbitVector(DeltaTime)};
 
 	Wisp->SetActorLocation(GetOwner()->GetActorLocation() + OrbitVector + ElevateVector);
 
@@ -80,14 +113,24 @@ void UFWParryComponent::Lerp(float DeltaTime)
 		StartLocation = Wisp->GetActorLocation();
 		bSetStartLocation = true;
 	}
-	DesiredLocation = Cast<AFWPlayerCharacter>(GetOwner())->DebugParryComponent->GetWispLocation();
+	if(ParryTarget != nullptr)
+	{
+		DesiredLocation = ParryTarget->GetActorLocation();
+	}
+	else
+	{
+		DesiredLocation = Cast<AFWPlayerCharacter>(GetOwner())->DebugParryComponent->GetWispLocation();
+	}
+	
+	
 	DisplacementVector = DesiredLocation - GetOwner()->GetActorLocation();
 	float Scalar = Radius / DisplacementVector.Size();
 	DisplacementVector *= Scalar;
 	FVector EndLocation = GetOwner()->GetActorLocation() + DisplacementVector;
 	InterpAlpha += InterpSpeed * DeltaTime;
 	Wisp->SetActorLocation(FMath::Lerp(StartLocation, EndLocation, InterpAlpha));
-	if(InterpAlpha >= 1.f)
+	
+	if(InterpAlpha >= 1.f)	// We reached our target
 	{
 		WispState = EWispState::Resting;
 		FDateTime Time = FDateTime::Now();
@@ -95,6 +138,7 @@ void UFWParryComponent::Lerp(float DeltaTime)
 		const FVector WispLocation = Wisp->GetActorLocation();
 		const FVector CharacterLocation = GetOwner()->GetActorLocation();
 		RestLocationRelative = WispLocation - CharacterLocation;
+		SpawnParryFX();
 	}
 	UKismetSystemLibrary::DrawDebugLine(this,GetOwner()->GetActorLocation(),DesiredLocation,FLinearColor::Blue,5.f,1);
 }
@@ -118,15 +162,33 @@ void UFWParryComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	{
 		InterpAlpha = 0.f;
 		Wisp->SetActorLocation(GetOwner()->GetActorLocation() + RestLocationRelative);
+		//ParryableActors.Remove(ParryTarget);
+		if(ParryableActors.Num()>0)
+		{
+			ParryableActors.RemoveAt(0);
+			if(ParryableActors.Num()>0)
+				ParryTarget = ParryableActors[0];
+			else
+				ParryTarget = nullptr;
+		}
+		else
+		{
+			WispState = EWispState::Orbiting;
+            ParryTarget = nullptr;
+		}
+			
+		//UE_LOG(LogWisp, Warning, TEXT("Removing"));
+		
 	}
 
+	/*
 	const FVector WispLocation = Wisp->GetActorLocation();
 	const FVector CharacterLocation = GetOwner()->GetActorLocation();
 	const FVector WispLocationRelative = WispLocation - CharacterLocation;
 	UE_LOG(LogWisp, Error, TEXT("WispLocation:				%s"), *WispLocation.ToString());
 	UE_LOG(LogWisp, Error, TEXT("CharacterLocation:			%s"), *CharacterLocation.ToString());
 	UE_LOG(LogWisp, Error, TEXT("WispLocationRelative:		%s"), *WispLocationRelative.ToString());
-	
+	*/
 	
 	
 }

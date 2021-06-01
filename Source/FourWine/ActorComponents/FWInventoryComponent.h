@@ -22,6 +22,7 @@ public:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 	void AddItemToInventory(FInventoryItem InventoryItem);
+	void AddLootToInventory(FLootData InLootData);
 	bool GetInventoryItem(int32 Index, FInventoryItem& Item);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)

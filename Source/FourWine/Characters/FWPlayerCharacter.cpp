@@ -72,7 +72,11 @@ AFWPlayerCharacter::AFWPlayerCharacter(const FObjectInitializer& ObjectInitializ
 
 	ParryComponent = CreateDefaultSubobject<UFWParryComponent>(TEXT("Parry Component"));
 	DebugParryComponent = CreateDefaultSubobject<UFWParryComponent>(TEXT("Debug Parry Component"));
-	
+}
+
+void AFWPlayerCharacter::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
 }
 
 void AFWPlayerCharacter::PossessedBy(AController* NewController)
@@ -114,6 +118,10 @@ void AFWPlayerCharacter::KillNotify(AActor* ActorKilled) const
 void AFWPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	if(ParryComponent != nullptr && DebugParryComponent != nullptr)
+	{
+		ParryComponent->ParryableActors.Add(DebugParryComponent->GetWisp());
+	}
 }
 
 void AFWPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -132,6 +140,7 @@ void AFWPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 	PlayerInputComponent->BindAction("EquipWeapon1", IE_Pressed, this, &AFWPlayerCharacter::EquipWeapon1);
 	PlayerInputComponent->BindAction("EquipWeapon2", IE_Pressed, this, &AFWPlayerCharacter::EquipWeapon2);
 	PlayerInputComponent->BindAction("EquipWeapon3", IE_Pressed, this, &AFWPlayerCharacter::EquipWeapon3);
+	PlayerInputComponent->BindAction("Parry", IE_Pressed, this, &AFWPlayerCharacter::Parry);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFWPlayerCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFWPlayerCharacter::MoveRight);
@@ -269,13 +278,6 @@ void AFWPlayerCharacter::SwitchShoulder()
 void AFWPlayerCharacter::OrientToMovement()
 {
 	//GetCharacterMovement()->bOrientRotationToMovement = !GetCharacterMovement()->bOrientRotationToMovement;
-	if(ParryComponent->WispState != EWispState::Orbiting)
-	{
-		ParryComponent->WispState = EWispState::Orbiting;
-	}else if(ParryComponent->WispState == EWispState::Orbiting)
-	{
-		ParryComponent->WispState = EWispState::Lerping;
-	}
 	
 }
 
@@ -341,9 +343,17 @@ void AFWPlayerCharacter::BoxTraceForPickUp()
 		if(LootActor.IsValid())
 		{
 			//CreateWeapon(LootActor->PickUp());
+			
+			
+			/* Testing new method
 			FInventoryItem InventoryItem;
 			LootActor->PickUp(InventoryItem);
 			InventoryComponent->AddItemToInventory(InventoryItem);
+			*/
+			FLootData LootData;
+			LootActor->PickUp(LootData);
+			InventoryComponent->AddItemToInventory(LootData);
+			
 		}
 	}
 }
@@ -368,6 +378,21 @@ void AFWPlayerCharacter::EquipWeapon3()
 	EquipWeapon(2);
 }
 
+void AFWPlayerCharacter::Parry()
+{
+	if(ParryComponent != nullptr)
+		ParryComponent->Parry(bDebugParry);
+	/*
+	if(ParryComponent->WispState != EWispState::Orbiting)
+	{
+		ParryComponent->WispState = EWispState::Orbiting;
+	}else if(ParryComponent->WispState == EWispState::Orbiting)
+	{
+		ParryComponent->WispState = EWispState::Lerping;
+	}
+	*/
+}
+
 void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 {
 	if(RightHandWeaponActor != nullptr)
@@ -379,6 +404,8 @@ void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 		SetAttackPower();
 	}
 }
+
+
 
 void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
