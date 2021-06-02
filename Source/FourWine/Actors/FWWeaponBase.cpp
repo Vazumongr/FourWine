@@ -56,12 +56,16 @@ void AFWWeaponBase::DoOverlap_Implementation()
     {
         FGameplayTag EventTag = FGameplayTag::RequestGameplayTag(FName("Ability.Melee"));
         FGameplayEventData Payload;
-        
+         
         Payload.Instigator = this;
         Payload.ContextHandle = AbilitySystemComponent->MakeEffectContext();
         Payload.EventTag = EventTag;
         Payload.TargetData = UAbilitySystemBlueprintLibrary::AbilityTargetDataFromActorArray(ActorsHitOnThisTrace, false);
-        
+
+        for(AActor* Act : ActorsHitOnThisTrace)
+        {
+            //UE_LOG(LogPlayer, Warning, TEXT("hit %s"), *Act->GetName());
+        }
         
         AbilitySystemComponent->HandleGameplayEvent(EventTag, &Payload);
     }
@@ -70,8 +74,8 @@ void AFWWeaponBase::DoOverlap_Implementation()
 
 void AFWWeaponBase::Setup(FInventoryItem InInventoryItem)
 {
-    DamageValues = InInventoryItem.DamageValues;
-    StaticMeshComponent->SetStaticMesh(InInventoryItem.StaticMesh);
+    DamageValues = InInventoryItem.LootData.DamageValues;
+    StaticMeshComponent->SetStaticMesh(InInventoryItem.LootData.StaticMesh);
     InventoryItem = InInventoryItem;
 }
 

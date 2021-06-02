@@ -17,11 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	ALootBase();
 
-	void PickUp(FInventoryItem& InventoryItem);
 	void PickUp(FLootData& InventoryItem);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FInventoryItem InventoryItem;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FLootData LootData;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

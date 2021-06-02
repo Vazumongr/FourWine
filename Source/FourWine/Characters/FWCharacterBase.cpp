@@ -5,6 +5,7 @@
 #include "FourWine/Abilities/FWAbilitySystemComponent.h"
 #include "FourWine/Abilities/AttributeSets/FWAttributeSet.h"
 #include "FourWine/Abilities/FWGameplayAbility.h"
+#include "GameFramework/PlayerState.h"
 
 AFWCharacterBase::AFWCharacterBase(const FObjectInitializer& ObjectInitializer)
 {
@@ -83,6 +84,8 @@ void AFWCharacterBase::Die()
 	{
 		AbilitySystemComponent->CancelAllAbilities();
 	}
+
+	UE_LOG(LogPlayer, Warning, TEXT("This player is die: %s"), *GetName());
 
 	Destroy();
 	

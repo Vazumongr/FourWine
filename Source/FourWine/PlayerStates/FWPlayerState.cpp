@@ -66,6 +66,9 @@ void AFWPlayerState::BeginPlay()
 		MaxStaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetMaxStaminaAttribute()).AddUObject(this, &AFWPlayerState::MaxStaminaChanged);
 		AttackPowerChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetAttackPowerAttribute()).AddUObject(this, &AFWPlayerState::AttackPower);
 	}
+
+	
+	UE_LOG(LogPlayer, Warning, TEXT("%s has %s pawn."), *GetName(), *GetPawn()->GetName());
 }
 
 void AFWPlayerState::HealthChanged(const FOnAttributeChangeData& Data)
@@ -74,6 +77,7 @@ void AFWPlayerState::HealthChanged(const FOnAttributeChangeData& Data)
 	UE_LOG(LogAttribute, Warning, TEXT("Health: %f | %s"), Health, *GetName());
 	// Update HUD stuff
 
+	if(Health > 0) return;
 	if(AFWCharacterBase* Character = Cast<AFWCharacterBase>(GetPawn()))
 	{
 		Character->Die();

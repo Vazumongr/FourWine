@@ -13,14 +13,6 @@ ALootBase::ALootBase()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(FName(TEXT("Static Mesh Component")));
 	SetRootComponent(StaticMeshComponent);
-	
-
-}
-
-void ALootBase::PickUp(FInventoryItem& OutInventoryItem)
-{
-	OutInventoryItem = InventoryItem;
-	Destroy();
 }
 
 void ALootBase::PickUp(FLootData& OutData)
@@ -46,8 +38,8 @@ void ALootBase::BeginPlay()
 		y = FMath::RandRange(0,30);
 		z = FMath::RandRange(0,30);
 	}
-	InventoryItem.DamageValues = FDamageStruct{x,y,z};
-	InventoryItem.StaticMesh = StaticMeshComponent->GetStaticMesh();
+	LootData.DamageValues = FDamageStruct{x,y,z};
+	LootData.StaticMesh = StaticMeshComponent->GetStaticMesh();
 	
 }
 

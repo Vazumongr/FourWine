@@ -10,6 +10,7 @@
 #include "FourWine/Widgets/FWInventoryWidget.h"
 #include "FourWine/Characters/FWPlayerCharacter.h"
 #include "FourWine/PlayerStates/FWPlayerState.h"
+#include "FourWine/FourWine.h"
 
 void AFWPlayerController::SetupInputComponent()
 {
@@ -26,6 +27,7 @@ void AFWPlayerController::OnPossess(APawn* InPawn)
     if(PS)
     {
         PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, InPawn);
+        UE_LOG(LogPlayer, Warning, TEXT("%s has %s player state."), *GetName(), *PS->GetName());
     }
 }
 

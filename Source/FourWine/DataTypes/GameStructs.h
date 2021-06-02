@@ -62,23 +62,21 @@ USTRUCT(BlueprintType)
 struct FInventoryItem
 {
 	GENERATED_BODY()
-
-	FInventoryItem(FLootData InLootData)
+	explicit FInventoryItem(FLootData InLootData)
 	{
-		ItemsClass = InLootData.ItemsClass;
-		StaticMesh = InLootData.StaticMesh;
-		DamageValues = InLootData.DamageValues;
 		LootData = InLootData;
 	}
 
-	FInventoryItem() { StaticMesh = nullptr; }
+	FInventoryItem() { }
 
+	/*
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class AFWWeaponBase> ItemsClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMesh* StaticMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDamageStruct DamageValues;
+	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FLootData LootData;
 	

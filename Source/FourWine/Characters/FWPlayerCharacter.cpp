@@ -342,18 +342,9 @@ void AFWPlayerCharacter::BoxTraceForPickUp()
 		TWeakObjectPtr<ALootBase> LootActor = Cast<ALootBase>(OutHit.Actor);
 		if(LootActor.IsValid())
 		{
-			//CreateWeapon(LootActor->PickUp());
-			
-			
-			/* Testing new method
-			FInventoryItem InventoryItem;
-			LootActor->PickUp(InventoryItem);
-			InventoryComponent->AddItemToInventory(InventoryItem);
-			*/
 			FLootData LootData;
 			LootActor->PickUp(LootData);
-			InventoryComponent->AddItemToInventory(LootData);
-			
+			InventoryComponent->AddLootToInventory(LootData);
 		}
 	}
 }
@@ -409,7 +400,7 @@ void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 
 void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 {
-	const TSubclassOf<AFWWeaponBase> SpawningClass = InventoryItem.ItemsClass;
+	const TSubclassOf<AFWWeaponBase> SpawningClass = InventoryItem.LootData.ItemsClass;
 	
 	if(LeftHandWeaponActor != nullptr)
 		LeftHandWeaponActor->Destroy();
