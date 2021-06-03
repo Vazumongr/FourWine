@@ -7,6 +7,15 @@
 //#include "UObject/NoExportTypes.h"
 #include "GameStructs.generated.h"
 
+UENUM()
+enum class ELootType : uint8
+{
+	Default,
+	Weapon,
+	Armor,
+	Consumable
+};
+
 USTRUCT(BlueprintType)
 struct FDamageStruct
 {
@@ -19,6 +28,11 @@ struct FDamageStruct
 		Zadis = InZ;
 	}
 	FDamageStruct() { }
+
+	FString ToString()
+	{
+		return (FString::SanitizeFloat(Xetri) + ", " + FString::SanitizeFloat(Yourg) + ", " + FString::SanitizeFloat(Zadis));
+	}
 
 	/* Value coming in is damage being dealt.
 	 * Values used locally is our resistances
@@ -50,12 +64,30 @@ struct FLootData
 
 	FLootData() { StaticMesh = nullptr; }
 
+	FString ToString()
+	{
+		FString ReturnString = "";
+		//ReturnString.Append(ItemsClass->GetDefaultObjectName() + " | ");
+		ReturnString.Append(StaticMesh->GetName() + " | ");
+		ReturnString.Append(DamageValues.ToString() + " | ");
+		UEnum* Enum = StaticEnum<ELootType>();
+		//Enum->GetNameStringByValue((uint8)LootType).ToLower().Replace(TEXT("_"), TEXT(" "));
+		//Enum->GetNameStringByValue(*(int32*)LootType);
+		//Enum->GetNameStringByValue(*Cast<uint64>(&LootType));
+		//ReturnString.Append(Enum->GetNameStringByValue(*Cast<uint64>(&LootType)));
+		ReturnString.Append(Enum->GetNameStringByValue((uint8)LootType).ToLower().Replace(TEXT("_"), TEXT(" ")));
+		
+		return ReturnString;
+	}
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class AFWWeaponBase> ItemsClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMesh* StaticMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDamageStruct DamageValues;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ELootType LootType = ELootType::Default;
 };
 
 USTRUCT(BlueprintType)

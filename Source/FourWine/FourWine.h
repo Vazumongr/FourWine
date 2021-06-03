@@ -9,6 +9,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogWeapon, All, All);
 DECLARE_LOG_CATEGORY_EXTERN(LogInventory, All, All);
 DECLARE_LOG_CATEGORY_EXTERN(LogPlayer, All, All);
 DECLARE_LOG_CATEGORY_EXTERN(LogWisp, All, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogLoot, All, All);
 
 UENUM(BlueprintType)
 enum class EFWAbilityInputID : uint8

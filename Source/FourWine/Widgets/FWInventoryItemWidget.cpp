@@ -10,6 +10,7 @@ void UFWInventoryItemWidget::EquipWeapon()
 	if(PlayerController!= nullptr)
 	{
 		AFWPlayerCharacter* PlayerCharacter = Cast<AFWPlayerCharacter>(PlayerController->GetPawn());
-		PlayerCharacter->EquipWeapon(Idx);
+		//PlayerCharacter->EquipWeapon(Idx);
+		PlayerCharacter->RemoveItemFromInventory(Idx);
 	}
 }

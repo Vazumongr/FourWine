@@ -83,6 +83,7 @@ void AFWPlayerCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	AFWPlayerState* PS = GetPlayerState<AFWPlayerState>();
+	UE_LOG(LogPlayer, Warning, TEXT("%s is being possessed by %s"), *GetName(), *NewController->GetName());
 	if(PS)
 	{
 		AbilitySystemComponent = Cast<UFWAbilitySystemComponent>(PS->GetAbilitySystemComponent());
@@ -277,7 +278,6 @@ void AFWPlayerCharacter::SwitchShoulder()
 
 void AFWPlayerCharacter::OrientToMovement()
 {
-	//GetCharacterMovement()->bOrientRotationToMovement = !GetCharacterMovement()->bOrientRotationToMovement;
 	
 }
 
@@ -290,7 +290,7 @@ void AFWPlayerCharacter::Attack()
 		{
 			PlayAttackAnim();
 			bCanChain = false;
-		}
+		} 
 	}
 	else
 	{
@@ -396,6 +396,13 @@ void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 	}
 }
 
+void AFWPlayerCharacter::RemoveItemFromInventory(int32 WeaponIdx)
+{
+	if(InventoryComponent != nullptr)
+	{
+		InventoryComponent->DropItemFromInventory(WeaponIdx);
+	}
+}
 
 
 void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)

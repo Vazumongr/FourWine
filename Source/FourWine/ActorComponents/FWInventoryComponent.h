@@ -23,6 +23,8 @@ public:
 	virtual void BeginPlay() override;
 	void AddItemToInventory(FInventoryItem InventoryItem);
 	void AddLootToInventory(FLootData InLootData);
+	void DropItemFromInventory(int32 Index);
+	void RemoveItemFromInventory(int32 Index);
 	bool GetInventoryItem(int32 Index, FInventoryItem& Item);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
