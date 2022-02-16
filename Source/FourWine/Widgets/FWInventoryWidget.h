@@ -21,9 +21,12 @@ public:
 	void SetupInventoryDisplay();
 	void Setup();
 	void TearDown();
+	void UpdateDisplay(class UFWInventoryItemWidget* NewItem);
 
 	UPROPERTY()
 	class UFWInventoryComponent* InventoryComponent;
+	UPROPERTY()
+	class UFWInventoryItemWidget* EquippedItem;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<class UFWInventoryItemWidget> ItemClass;

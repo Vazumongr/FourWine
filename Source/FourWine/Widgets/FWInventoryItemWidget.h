@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "FWInventoryWidget.h"
 #include "Blueprint/UserWidget.h"
 #include "FourWine/DataTypes/GameStructs.h"
 #include "FWInventoryItemWidget.generated.h"
@@ -19,7 +21,13 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void EquipWeapon();
-	
+
+	void Equip();
+	void Unequip();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadonly)
+	UFWInventoryWidget* Owner;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FInventoryItem Item;
 	int32 Idx;

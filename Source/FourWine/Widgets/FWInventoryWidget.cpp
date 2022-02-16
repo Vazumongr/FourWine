@@ -22,6 +22,7 @@ void UFWInventoryWidget::SetupInventoryDisplay()
 		UFWInventoryItemWidget* Widget = CreateWidget<UFWInventoryItemWidget>(this, ItemClass);
 		Widget->Item = Item;
 		Widget->Idx = Idx;
+		Widget->Owner = this;
 		ItemBoxes->AddChild(Widget);
 		Idx++;
 	}
@@ -70,4 +71,18 @@ void UFWInventoryWidget::TearDown()
     
 	PlayerController->SetInputMode(InputModeData);
 	PlayerController->bShowMouseCursor = false;
+}
+
+void UFWInventoryWidget::UpdateDisplay(UFWInventoryItemWidget* NewItem)
+{
+	if(EquippedItem != nullptr)
+	{
+		EquippedItem->Unequip();
+	}
+	
+	if(NewItem != nullptr)
+	{
+		NewItem->Equip();
+		EquippedItem = NewItem;
+	}
 }

@@ -6,6 +6,7 @@
 #include "FourWine/ActorComponents/QuestManager.h"
 #include "FourWine/Actors/TargetDummy.h"
 #include "GameFramework/Character.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 UQuestBase::UQuestBase()
 {
@@ -38,6 +39,7 @@ UQuestBase::UQuestBase()
 void UQuestBase::CheckKillObjective(FObjective& temp, TSubclassOf<AActor> InClass)
 {
 	UE_LOG(LogTemp, Warning, TEXT("%s BEING CHECKED"), *temp.ObjectiveName);
+	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("%s BEING CHECKED"), *temp.ObjectiveName), true, true, FLinearColor::Blue, 5);
 	if(temp.bIsCompleted || temp.ObjectiveType != EObjectiveType::KillObjective) return;
 
 	/*
@@ -71,6 +73,7 @@ void UQuestBase::CheckKillObjective(FObjective& temp, TSubclassOf<AActor> InClas
 			{
 			temp.bIsCompleted = true;
 			UE_LOG(LogTemp, Warning, TEXT("You completed an objective"));
+			UKismetSystemLibrary::PrintString(this, FString(TEXT("You completed an objective")), true, true, FLinearColor::Yellow, 5);
 					
 			const int32 NextObjectiveIndex = 1 + Objectives.IndexOfByPredicate([temp](const FObjective& Objective) { return Objective == temp; });
 			UE_LOG(LogTemp, Warning, TEXT("Next objective index is: %d"), NextObjectiveIndex);
@@ -86,6 +89,7 @@ void UQuestBase::CheckKillObjective(FObjective& temp, TSubclassOf<AActor> InClas
 				}
 			}
 			UE_LOG(LogTemp, Warning, TEXT("Kill count increased"));
+			//UKismetSystemLibrary::PrintString(this, FString(TEXT("Kill count increased")));
 			break;
 		}
 			

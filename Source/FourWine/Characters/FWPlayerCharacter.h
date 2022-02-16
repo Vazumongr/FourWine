@@ -113,7 +113,7 @@ protected:
 	void Parry();
 public:
 	void EquipWeapon(int32 WeaponIdx);
-	void RemoveItemFromInventory(int32 WeaponIdx);
+	void RemoveItemFromInventory(int32 WeaponIdx) const;
 protected:
 	void CreateWeapon(struct FInventoryItem InventoryItem);
 

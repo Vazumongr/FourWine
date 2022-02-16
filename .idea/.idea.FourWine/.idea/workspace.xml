@@ -4,6 +4,9 @@
     <projectFile>Intermediate/ProjectFiles/FourWine.vcxproj</projectFile>
     <projectFile>Intermediate/ProjectFiles/UE4.vcxproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -24,17 +27,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="939de1e5-c9d0-4f48-b68c-32706481cc5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Animation/Montages/AM_Jump.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Test/test.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/UserInterface/WBP_HUD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Test/MYCharacterBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/FourWine/Test/MYCharacterBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FourWine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_Melee1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AbilitySystem/Abilities/GA_MeleeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Montages/Melee_A_Montage1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/Montages/Melee_A_Montage1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Axe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Axe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Hammer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Hammer.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UserInterface/WBP_InventoryItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UserInterface/WBP_InventoryItem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourWine.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FourWine.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/ActorComponents/QuestManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/ActorComponents/QuestManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FourWine/FourWine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/FourWine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Objects/QuestBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Objects/QuestBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,48 +74,49 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/Settings/SettingsClasses.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/ThumbnailHelpers.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/MockGameplayTasks.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/BlueprintGraph/Classes/K2Node_RemoveDelegate.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/um/wingdi.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/PhysicsAssetEditor/Private/PhysicsAssetGraph/PhysicsAssetGraphSummoner.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Private/Tests/AITestsCommon.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/GraphEditor/Private/KismetPins/SGraphPinKey.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Localization/Private/LocTextHelperTests.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/HotReload/Private/HotReload.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AssetTools/Private/AssetFixUpRedirectors.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/BodySetup.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/RadialForceComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Public/CollisionDebugDrawingPublic.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Renderer/Private/PlanarReflectionRendering.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AssetTools/Private/AssetTypeActions/AssetTypeActions_AnimationAsset.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/UObject/WeakObjectPtrTemplates.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/VREditor/VREditorModeManager.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Android/AndroidDeviceDetection/Private/AndroidDeviceDetectionModule.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Components/InputComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/MeshPaint/Private/TexturePaintHelpers.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/ThumbnailHelpers.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/UObject/WeakObjectPtrTemplates.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Android/AndroidDeviceDetection/Private/AndroidDeviceDetectionModule.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/um/wingdi.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Curves/StringCurve.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Controller.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/UnrealEd/Private/Settings/SettingsClasses.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/Containers/UnrealString.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/Actions/TestPawnAction_CallFunction.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/DefaultPawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/Actions/TestPawnAction_Log.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Android/AndroidPlatformEditor/Private/AndroidTargetSettingsCustomization.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/DefaultPawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Renderer/Private/HairStrands/HairStrandsEnvironment.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/MockGameplayTasks.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Classes/Actions/TestPawnAction_CallFunction.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/AVEncoder/Private/Microsoft/Windows/ThirdParty/AmdAmf/components/ComponentCaps.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/PhysicsAssetEditor/Private/PhysicsAssetGraph/PhysicsAssetGraphSummoner.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/DefaultPawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Android/AndroidPlatformEditor/Private/AndroidTargetSettingsCustomization.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/BlueprintGraph/Classes/K2Node_RemoveDelegate.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/DefaultPawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/GraphEditor/Private/KismetPins/SGraphPinKey.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AITestSuite/Private/Tests/AITestsCommon.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AssetTools/Private/AssetFixUpRedirectors.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/HotReload/Private/HotReload.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/Localization/Private/LocTextHelperTests.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Public/CollisionDebugDrawingPublic.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/RadialForceComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/BodySetup.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Components/InputComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Developer/AssetTools/Private/AssetTypeActions/AssetTypeActions_AnimationAsset.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Renderer/Private/PlanarReflectionRendering.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Editor/VREditor/VREditorModeManager.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -120,17 +142,13 @@
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.Build.cs" />
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/MainPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Controllers/FWPlayerController.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/HealthComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWineGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/QuestManager.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWParryComponent.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FourWineCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWCharacterBase.h" />
@@ -139,15 +157,22 @@
       <option value="$PROJECT_DIR$/Source/FourWine/PlayerStates/FWPlayerState.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Actors/LootBase.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.h" />
-      <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/FourWine.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Actors/FWWeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.cpp" />
-      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/ActorComponents/FWInventoryComponent.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryWidget.cpp" />
       <option value="$PROJECT_DIR$/Source/FourWine/DataTypes/GameStructs.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.h" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Widgets/FWInventoryItemWidget.cpp" />
+      <option value="$PROJECT_DIR$/Source/FourWine/Characters/FWPlayerCharacter.cpp" />
     </changedPaths>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PerforceDirect.Settings">
     <option name="ENABLED" value="false" />
@@ -623,12 +648,26 @@
       <workItem from="1622558811872" duration="8503000" />
       <workItem from="1622640463720" duration="8656000" />
       <workItem from="1622727932531" duration="4412000" />
+      <workItem from="1622805697713" duration="1195000" />
+      <workItem from="1628039435050" duration="326000" />
+      <workItem from="1628039921484" duration="5393000" />
+      <workItem from="1628190827152" duration="2226000" />
+      <workItem from="1628194923077" duration="1603000" />
+      <workItem from="1628649448347" duration="495000" />
+      <workItem from="1628790105146" duration="131000" />
+      <workItem from="1632442301874" duration="147000" />
+      <workItem from="1632953877397" duration="973000" />
+      <workItem from="1634856955122" duration="1166000" />
+      <workItem from="1636572875016" duration="12000" />
+      <workItem from="1642729655603" duration="1402000" />
+      <workItem from="1645010349355" duration="3078000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -641,7 +680,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

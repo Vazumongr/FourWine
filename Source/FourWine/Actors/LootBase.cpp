@@ -38,7 +38,7 @@ void ALootBase::BeginPlay()
 		y = FMath::RandRange(0,30);
 		z = FMath::RandRange(0,30);
 	}
-	LootData.DamageValues = FDamageStruct{x,y,z};
+	LootData.DamageValues = bUseRand ? FDamageStruct{x,y,z} : FDamageStruct{50,50,50};
 	LootData.StaticMesh = StaticMeshComponent->GetStaticMesh();
 	
 }

@@ -4,6 +4,7 @@
 #include "QuestManager.h"
 
 #include "FourWine/Objects/QuestBase.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values for this component's properties
 UQuestManager::UQuestManager()
@@ -61,6 +62,8 @@ void UQuestManager::CheckForKillQuests(TSubclassOf<AActor> InClass)
 void UQuestManager::QuestComplete(UQuestBase* CompletedQuest)
 {
 	UE_LOG(LogTemp, Warning, TEXT("A QUEST has finished!"));
+	UKismetSystemLibrary::PrintString(this, FString(TEXT("A QUEST has finished!")), true, true, FLinearColor::Green, 5);
+
 	if(CompletedQuest != nullptr)
 	{
 		QuestToBePurged.Add(CompletedQuest);
@@ -86,6 +89,7 @@ void UQuestManager::PurgeQuests()
 	}
 	else
 	{
+		UKismetSystemLibrary::PrintString(this, FString(TEXT("All quests completed!")), true, true, FLinearColor::Green, 5);
 		UE_LOG(LogTemp, Warning, TEXT("All quests completed!"));
 	}
 	

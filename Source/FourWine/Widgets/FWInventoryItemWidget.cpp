@@ -10,7 +10,17 @@ void UFWInventoryItemWidget::EquipWeapon()
 	if(PlayerController!= nullptr)
 	{
 		AFWPlayerCharacter* PlayerCharacter = Cast<AFWPlayerCharacter>(PlayerController->GetPawn());
-		//PlayerCharacter->EquipWeapon(Idx);
-		PlayerCharacter->RemoveItemFromInventory(Idx);
+		PlayerCharacter->EquipWeapon(Idx);
+		Owner->UpdateDisplay(this);
 	}
+}
+
+void UFWInventoryItemWidget::Equip()
+{
+	Item.bIsEquipped = true;
+}
+
+void UFWInventoryItemWidget::Unequip()
+{
+	Item.bIsEquipped = false;
 }

@@ -26,6 +26,7 @@ public:
 	void DropItemFromInventory(int32 Index);
 	void RemoveItemFromInventory(int32 Index);
 	bool GetInventoryItem(int32 Index, FInventoryItem& Item);
+	void UnequipInventoryItem(FInventoryItem Item);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<struct FInventoryItem> Inventory;

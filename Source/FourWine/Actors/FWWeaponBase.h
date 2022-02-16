@@ -29,6 +29,8 @@ public:
 	void EndAttack();
 	void SetOwningActor(AActor* InOwningActor);
 	float GetDamage() const;
+
+	FORCEINLINE FInventoryItem GetInventoryItem() const { return InventoryItem; }
 	
 	FORCEINLINE TArray<TSubclassOf<class UFWGameplayAbility>>& GetAbilities() { return AbilitiesForOwner; };
 	UStaticMesh* GetStaticMesh() const { return StaticMeshComponent->GetStaticMesh();}

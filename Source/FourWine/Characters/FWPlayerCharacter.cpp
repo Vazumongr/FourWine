@@ -386,8 +386,6 @@ void AFWPlayerCharacter::Parry()
 
 void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 {
-	if(RightHandWeaponActor != nullptr)
-		InventoryComponent->AddItemToInventory(*RightHandWeaponActor->StoreWeapon());
 	FInventoryItem InventoryItem;
 	if(InventoryComponent->GetInventoryItem(WeaponIdx, InventoryItem))
 	{
@@ -396,7 +394,7 @@ void AFWPlayerCharacter::EquipWeapon(int32 WeaponIdx)
 	}
 }
 
-void AFWPlayerCharacter::RemoveItemFromInventory(int32 WeaponIdx)
+void AFWPlayerCharacter::RemoveItemFromInventory(int32 WeaponIdx) const
 {
 	if(InventoryComponent != nullptr)
 	{
@@ -412,7 +410,11 @@ void AFWPlayerCharacter::CreateWeapon(FInventoryItem InventoryItem)
 	if(LeftHandWeaponActor != nullptr)
 		LeftHandWeaponActor->Destroy();
 	if(RightHandWeaponActor != nullptr)
+	{
+		InventoryComponent->UnequipInventoryItem(RightHandWeaponActor->GetInventoryItem());
 		RightHandWeaponActor->Destroy();
+	}
+		
 	AbilitySystemComponent->ClearAllAbilities();
 
 	RightHandWeaponActor = GetWorld()->SpawnActor<AFWWeaponBase>(SpawningClass);

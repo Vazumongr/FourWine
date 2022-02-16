@@ -101,18 +101,11 @@ struct FInventoryItem
 
 	FInventoryItem() { }
 
-	/*
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<class AFWWeaponBase> ItemsClass;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UStaticMesh* StaticMesh;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FDamageStruct DamageValues;
-	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FLootData LootData;
 	
 	FGuid ItemID = FGuid::NewGuid();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bIsEquipped = false;
 };
 

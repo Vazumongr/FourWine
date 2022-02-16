@@ -61,3 +61,14 @@ bool UFWInventoryComponent::GetInventoryItem(int32 Index, FInventoryItem& Invent
 	//Inventory.RemoveAt(Index);
 	return true;
 }
+
+void UFWInventoryComponent::UnequipInventoryItem(FInventoryItem Item)
+{
+	for(FInventoryItem& Inv : Inventory)
+	{
+		if(Inv.ItemID == Item.ItemID)
+		{
+			Inv.bIsEquipped = false;
+		}
+	}
+}
